@@ -1,0 +1,530 @@
+<!doctype html> 
+
+<html> 
+		<head>
+				<meta charset="utf-8">
+
+				<title>Reed Hastings</title>
+
+				<link rel="stylesheet" href="/static/css/styles.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){ // Same as stevejobs.html, minus commenting framework
+
+		{% block liked %}
+
+		{% if liked == 1 %}
+			$(".like_main").hide();
+			$(".liked_main").show();
+		{% endif %}
+
+		{% if liked == 0 %}
+			$(".liked_main").hide();
+		{% endif %}
+
+		{% endblock %}
+
+			$("#new_like").hide();
+
+	    	$(".like_main").click(function() {
+	    		$(".like_main").hide();
+	        	$(".liked_main").show();
+	        	$("#old_like").hide();
+	        	$("#new_like").show();
+	    	});
+
+	    	$(".liked_main").click(function() {
+	        	$(".like_main").show();
+	        	$(".liked_main").hide();
+	        	$("#new_like").hide();
+	        	$("#old_like").show();
+	    	});
+
+	    	function deselect(e) {
+  				$('.pop').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#share').on('click', function() {
+			  	$("#success").hide();
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+				$("#share_button").click(function() {
+	        		$("#success").slideFadeToggle();
+	    	 	});
+
+			  $('.close').on('click', function() {
+			    deselect($('#share'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			function deselect(e) {
+  				$('.pop2').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#likes').on('click', function() {
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop2').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+			  $('.close').on('click', function() {
+			    deselect($('#likes'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){ // Powers JS pop up window for test commenting framework
+			function deselect(e) {
+  				$('.pop3').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#comments').on('click', function() {
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop3').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+			  $('.close').on('click', function() {
+			    deselect($('#comments'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script type="text/javascript">
+		function comment() {
+		    var input = document.getElementById("new_comment").value;
+			var para = document.createElement("div");
+			var para2 = document.createElement("p");
+			var node = document.createTextNode(input);
+			var node2 = document.createTextNode("~ By {{ user }}");
+			para.appendChild(node);
+			para2.appendChild(node2);
+			var element = document.getElementById("comment_pane");
+			element.appendChild(para);
+			element.appendChild(para2);
+		}
+	</script>
+
+		</head>
+
+		<body>
+
+		<div class="container">
+
+				<header>
+
+		<a href="/">
+
+			<figure class="home_button">
+
+				<img src="/static/home.png">
+
+			</figure>
+
+		</a>
+
+		{% block signup %}
+		{% if not session['logged_in'] %}
+		
+			<a href="/signup">
+
+						<figure class="signup">
+
+							<img src="/static/signup.png" width="50%">
+
+						</figure>
+
+					</a>
+
+					<a href="/login">
+
+						<figure class="login">
+
+							<img src="/static/login.png" width="50%">
+
+						</figure>
+
+					</a>
+
+		{% endif %}
+		{% endblock %}
+
+		{% block logout %}
+		{% if session['logged_in'] %}
+			<a href="/logout">
+
+				<figure class="logout">
+
+					<img src="/static/logout.png" width = "45.3%">
+
+				</figure>
+
+			</a>
+
+			<a href="/my_account">
+
+				<figure class="myaccount">
+
+					<img src="/static/account.png" width = "18%">
+
+				</figure>
+
+			</a>
+
+			<p id="user">Hello, {{ user }}</p>
+		{% endif %}
+		{% endblock %}
+
+			<figure class="apple">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+
+			<figure class="apple3">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+		
+			<div class="bar"></div>
+
+			<!-- This <div> is used soley for my persistent navigation bar -->
+
+			<nav class="menu">
+
+				<ul>
+			
+					<li><a href="/steve_jobs">Steve Jobs</a></li>
+
+					<li><a href="/reed_hastings">Reed Hastings</a></li>
+
+					<li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+					<li><a href="/jcr_licklider">JCR Licklider</a></li>
+					
+					<li><a href="/create_page">Create New Page</a></li>
+
+				</ul>
+
+			</nav>
+
+						<h1 class="reed">Reed Hastings and Netflix</h1>
+
+						<figure>
+							<img class="reed2" src="/static/reed.jpg" alt="Reed">
+							<figcaption class="cap">Netflix CEO and Co-founder, Reed Hastings</figcaption>
+						</figure>
+
+						<div class="head">
+
+						<p>In 1991, Reed founded Pure Software, which made tools for software developers. After a 1995 IPO, and several acquisitions, Pure was acquired by Rational Software in 1997.</p>
+ 
+						<p>Reed is an active educational philanthropist and served on the California State Board of Education from 2000 to 2004. He is currently on the board of several educational organizations including CCSA, Dreambox Learning, KIPP, and Pahara, and the Hispanic Foundation of Silicon Valley.</p>
+ 
+						<p>Reed is also a board member of Facebook, and was on the board of Microsoft from 2007 to 2012.</p>
+ 
+						<p>Reed received a BA from Bowdoin College in 1983, and an MSCS in Artificial Intelligence from Stanford University in 1988. Between Bowdoin and Stanford, Reed served in the Peace Corps as a high school math teacher in Swaziland. Reed is married with two children.</p>
+
+						</div>
+						{% block like %}
+							{% if session['logged_in'] %}
+
+							<div class="messagepop pop">
+
+								<h3 class="share">Share with another user</h3>
+
+							  <form method="post" id="share_with" action="/share_reed">
+
+							    <select name="user">
+							    	<option value="">Select user:</option>
+									{% for i in user_list %}
+										<option value="{{ i }}">{{ i }}</option>
+									{% endfor %}
+
+							  	</select>
+
+								<input id="share_button" class="share_with" type="submit" value="Share">
+
+								<div id="success">Shared successfully</div>
+
+							  </form>
+
+							</div>
+
+								<div class="messagepop pop2">
+
+									<h3 class="share">Users who like Reed Hastings</h3>
+
+									<p class="users_liked" id="old_like">{{reed_likes}}</p>
+
+									{% set new_like = reed_likes + ", " + user %}
+
+									<p class="users_liked" id="new_like">{{ new_like }}</p>
+
+								</div>
+
+								<div class="messagepop2 pop3">
+
+									<h3 class="comment">Comments</h3>
+										{% for i in comment_list %}
+								  			<div class="comments">{{ i }}</div>
+								  			<div class="comments">~ By {{ comment_by_list[loop.index - 1] }}</div>
+								  			<div id="line">__________________________________________________________________________________________________________</div>
+										{% endfor %}
+
+									<div id="comment_pane"></div>
+
+									<form method="post" class="share_with" action="/comment_reed">
+
+										<textarea rows="4" cols="50" name="new_comment" id="new_comment" autofocus> </textarea>
+
+										<input id="share_button" class="share_with" type="submit" value="Post comment" onclick="comment();">
+
+									</form>
+
+								</div>
+
+								<a href="/share" id="share" class="share_main"><img src="/static/share.png" width="2.7%"></a>
+
+								<a href="/likes" id="likes" class="likes_main"><img src="/static/likes.png" width="3.5%"></a>
+									
+								<a href="/like_reed" class="like_main"><img src="/static/like.png" width="3.5%"></a>
+
+								<a href="/like_reed" class="liked_main"><img src="/static/liked.png" width="3.5%"></a>
+
+								<a href="/comments" id="comments" class="share_main"><img src="/static/comment.png" width="2.5%"></a>
+
+							{% endif %}
+						{% endblock %}
+						<div class="reedhastings"></div>
+
+				</header>
+
+				<div id="background_apple"></div>
+
+						<article>
+
+							<section class="background2">
+
+								<h2 class="found">Founding of Netflix</h2>
+
+									<figure>
+
+										<img src="/static/netflix.jpg" alt="logo">
+										<figcaption>The Logo Everyone Knows</figcaption>
+									
+									</figure>
+
+									<p>In 1997 Hastings and Marc Randolph co-founded Netflix, offering flat rate film rental-by-mail to customers in the United States. Headquartered in Los Gatos, California, Netflix has amassed a collection of 100,000 titles and over 44 million subscribers. "I got the idea for Netflix after my company was acquired," said Hastings "I had a big late fee for 'Apollo 13.' It was six weeks late and I owed the video store $40. I had misplaced the cassette. It was all my fault. I didn’t want to tell my wife about it. And I said to myself, 'I’m going to compromise the integrity of my marriage over a late fee?' Later, on my way to the gym, I realized they had a much better business model. You could pay $30 or $40 a month and work out as little or as much as you wanted."</p>
+									<p>Hastings said that when he founded Netflix, he had no idea whether customers would use the service. "Netflix was originally a single rental service, but the subscription model was one of a few ideas we had—so there was no Aha! moment. Having unlimited due dates and no late fees has worked in a powerful way and now seems obvious, but at that time we had no idea if consumers would even build and use an online queue."</p>
+
+									</section>
+
+									<section class="ceo2">
+
+									<h3>Netflix Culture</h3>
+
+										<p>After his experiences at Pure Atria, Hastings was concerned with the problems of growth. If building an entertainment company was his public goal, his private goal was to build a company that would grow rapidly without losing its entrepreneurial spirit in the process. Netflix was a test-bed for his theories.</p>
+										<p>As Netflix grew, the company began getting noticed for its innovative management practices—the results of the culture Hastings was exploring—called "Freedom and Responsibility." Netflix is known to pay salaries that are typically much higher than customary to attract the best talent and is one of the few companies where employees can choose annually how much of their compensation they want in cash vs. stock. "We're unafraid to pay high," says Hastings. Other innovations include their treatment of employees who don't meet expectations. "At most companies, average performers get an average raise," says Hastings. "At Netflix, they get a generous severance package," because that way managers don't feel too guilty to let average performers go. The company also gained notoriety for eliminating sick and vacation time for employees, and instead allowing them to manage this time off individually.</p>
+										<p>Hastings would meet each new employee and discuss the culture and his theories about it. Over the years his personal presentation codified into a Powerpoint slide deck that was widely shared internally, reviewed and tweaked by upper management, and refined actively. In August 2009, Hastings posted this internal culture guide online for public scrutiny. It laid out Hastings' strongly held beliefs about workers and management. As of January, 2015 the deck has been viewed more than 10.5 million times.</p>
+
+										</section>
+
+								<section class="iphone">
+
+									<h3>Internet Television</h3>
+
+										<p>Hastings is a proponent of Internet television and sees it as the future. "I think there's a huge category of people who will watch movies on laptops," says Hastings. "And remember, it's not the laptop of today. Think of the laptop in five years. People will continue to want to watch movies on TV. No doubt about it. But laptop screens are improving. And young people are living on laptops." He credits YouTube for his shift in strategy for developing a video streaming service. Netflix launched a service in 2007 to stream movies and television to computers. "What we're finding is that young people, under 25, are watching our streaming on their PCs in huge numbers", says Hastings. "They operate more portably than we do with our big screen TVs."</p>
+
+									<h3 class="contro">Controversy</h3>
+
+										<p>In July 2011, Netflix announced that subscription prices were changing: that DVD rental prices would drop by 20%, but that the initially free streaming service would now be charged. For many customers this represented a savings, but for the group that both received discs and enjoyed streaming, it would result in a cost increase of up to 60%. The move led to reported customer backlash, cancellations, less than projected subscriber growth, and a decline in stock price. In response, Netflix admitted to poor public relations decisions in announcing the change but kept its policy in place.</p>
+										<p>Two months later, in September 2011, Netflix announced that it would spin off its popular DVD business under a new brand name, Qwikster, leading to customer and market confusion. Netflix reversed the decision less than a month later. During this time, the company's stock value plummeted and Hastings was asked about resigning, but he flatly rejected the idea. "I founded Netflix," he told an interviewer; "I've built it steadily over 12 years... [and] this is the first time there have been material missteps. If you look at the cumulative track record, it's extremely positive."</p>
+
+										</section>
+
+										<section class="ipad">
+
+									<h3>Netflix Now</h3>
+
+										<h4>Subscriber Growth</h4>
+											<p>(According to Netflix Reports of Q4 for each year)
+
+											<table>
+												<tr>
+													<th>Year</th>
+													<th>Subscribers</th>
+												</tr>
+												<tr>
+												    <td>2002</td>
+												    <td>857,000</td>
+												</tr>
+										  		<tr>
+										    		<td>2003</td>
+										    		<td>1,487,000</td> 
+										  		</tr>
+										  		<tr>
+										    		<td>2004</td>
+										    		<td>2,600,000</td> 
+										  		</tr>
+										  		<tr>
+										    		<td>2005</td>
+										    		<td>4,200,000</td> 
+										  		</tr>
+										  		<tr>
+										    		<td>2006</td>
+										    		<td>6,300,000</td> 
+										  		</tr>
+										  		<tr>
+										    		<td>2007</td>
+										    		<td>7,500,000</td> 
+										  		</tr>
+										  		<tr>
+										  			<td>2008</td>
+										  			<td>9,400,000</td>
+										  		</tr>
+										  		<tr>
+										  			<td>2009</td>
+										  			<td>12,300,000</td>
+										  		</tr>
+										  		<tr>
+										  			<td>2010</td>
+										  			<td>16,900,000</td>
+										  		</tr>
+										  		<tr>
+										  			<td>2011</td>
+										  			<td>21,600,000</td>
+										  		</tr>
+										  		<tr>
+										  			<td>2012</td>
+										  			<td>27,500,000</td>
+										  		</tr>
+										  		<tr>
+										  			<td>2013</td>
+										  			<td>44,000,000</td>
+										  		</tr>
+										  		<tr>
+										  			<td>2014</td>
+										  			<td>61,400,000</td>
+										  		</tr>
+										  		<tr>
+										  			<td>2015</td>
+										  			<td>65,000,000</td>
+										  		</tr>
+											</table>
+
+											<p>*2015's numbers based on Q2 subscribed member totals.</p>
+
+										</section>
+
+						</article>
+
+						<div id="background_apple3"></div>
+
+						<aside>
+
+							<section class="table">
+
+								<h2 class="found">Founding of Pure Software</h2>
+
+									<p>Hastings' first job was at Adaptive Technology, where he invented a tool for debugging software. "I worked for Audrey MacLean in 1990 when she was CEO at Adaptive Corp. From her, I learned the value of focus. I learned it is better to do one product well than two products in a mediocre way," says Hastings.</p>
+									<p>Hastings left Adaptive Technology in 1991 to found his first company, Pure Software, which produced products to troubleshoot software. The rapidly growing company soon proved challenging for Hastings as he lacked managerial experience. "As the company grew from 10 to 40 to 120 to 320 to 640 employees, I found I was definitely underwater and over my head," said Hastings. "I was doing white-water kayaking at the time, and in kayaking if you stare and focus on the problem you are much more likely to hit danger. I focused on the safe water and what I wanted to happen. I didn’t listen to the skeptics." Hastings' engineering background didn't prepare him for the challenges of being a CEO and he asked his board to replace him. "I tried to fire myself — twice," Hastings says. "I was losing confidence." The board refused and Hastings says he learned to be a businessman. "I was an engineer myself. We doubled our revenue every year, but my transformation from engineer to CEO was when Morgan Stanley took the company public in 1995."</p>
+									<p>In 1996, Pure Software announced a merger with Atria Software. The merger integrated Pure Software's programs for detecting bugs in software with Atria's tools to manage development of complex software. "With a single vendor and a unified sales force, we'll be able to make a really profound difference in the way people develop software," Hastings said at the time of the merger. The Wall Street Journal reported that there were problems integrating the sales forces of Pure Software and Atria after the head salesmen for both Pure and Atria left following the merger.</p>
+									<p>In 1997, the combined company, Pure Atria, was acquired by Rational Software, which triggered a 42% drop in both companies' stocks after the deal was announced. Hastings was appointed Chief Technical Officer of the combined companies and left soon after the acquisition. "I had the great fortune of doing a mediocre job at my first company," says Hastings. "We got more bureaucratic as we grew." After Pure Software, Hastings spent two years thinking about how to avoid similar problems at his next startup.</p>
+
+								</section>
+
+							<section class="list">
+
+								<h2 class="found">Early Life and Education</h2>
+
+									<p>Hastings was born in Boston, Massachusetts, the son of Joan Amory (Loomis) and Wilmot Reed Hastings. His maternal great-grandfather was attorney Alfred Lee Loomis. He entered Marine Corps officer training through their Platoon Leader Class and spent the summer of 1981 in Officer Candidate School at Quantico, Virginia. Hastings later petitioned the recruiting office and left the Marines for the Peace Corps.</p>
+									<p>Hastings joined the Peace Corps after graduating from Bowdoin College "out of a combination of service and adventure" and went to teach high school math in Swaziland from 1983 to 1985. Hastings credits part of his entrepreneurial spirit to his time in the Peace Corps. "Once you have hitchhiked across Africa with ten bucks in your pocket, starting a business doesn't seem too intimidating." </p>
+									<p>After returning from the Peace Corps, Hastings went on to attend Stanford University: "I didn’t get into my first choice, which was MIT, but I got accepted to Stanford," he says. He graduated in 1988 with a master's degree in computer science.</p>
+
+							</section>
+
+						</aside>
+
+						<aside class="mac2">
+
+								<h2 class="found">Personal Life: Quick Facts</h2>
+
+								<ul>
+									<li>Lives in San Francisco Bay Area.</li>
+									<li>Married.</li>
+									<li>Two children.</li>
+									<li>Featured in a front-page article in USA Today (1995), posed on his Porsche.</li>
+									<li>One of his favorite moves is Gloomy Sunday</li>
+									<li>Photographed by Kevin Abosch in 2012 for his project FACES:TECH.</li>
+								</ul>
+
+						</aside>
+
+		<footer>
+
+			<h2 class="help">Helpful Links</h2>
+
+				<ul>
+					<li><a href="https://en.wikipedia.org/wiki/Reed_Hastings" target="_blank">Wikipedia: Reed Hastings</a></li>
+					<li><a href="http://ir.netflix.com/management.cfm?bio=8195#8195" target="_blank">Netflix Biodgraphies</a></li>
+					<li><a href="http://content.time.com/time/specials/packages/article/0,28804,1972656_1972707_1973540,00.html">Time Magazine's 2005 Top 100</a></li>
+					<li><a href="http://ir.netflix.com/results.cfm">Netflix: Quarterly Earnings</a></li>
+				</ul>
+
+		</footer>
+
+		</div>
+
+		</body>
+</html>
+
+

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Steve Jobs</title>
+
+	<link rel="stylesheet" href="/static/css/styles.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			{% block liked %}
+
+			{% if liked == 1 %} // Powers color-changing heart icon
+				$(".like_main").hide();
+				$(".liked_main").show();
+			{% endif %}
+
+			{% if liked == 0 %}
+				$(".liked_main").hide();
+			{% endif %}
+
+			{% endblock %}
+
+			$("#new_like").hide();
+
+	    	$(".like_main").click(function() {
+	    		$(".like_main").hide();
+	        	$(".liked_main").show();
+	        	$("#old_like").hide();
+	        	$("#new_like").show();
+	    	});
+
+	    	$(".liked_main").click(function() {
+	        	$(".like_main").show();
+	        	$(".liked_main").hide();
+	        	$("#new_like").hide();
+	        	$("#old_like").show();
+	    	});
+
+	    	function deselect(e) { // Powers JS pop up window for sharing pages
+  				$('.pop').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#share').on('click', function() {
+			  	$("#success").hide();
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+				$("#share_button").click(function() {
+	        		$("#success").slideFadeToggle();
+	    	 	});
+
+			  $('.close').on('click', function() {
+			    deselect($('#share'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){ // Powers JS pop up window for user who like this page
+			function deselect(e) {
+  				$('.pop2').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#likes').on('click', function() {
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop2').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+			  $('.close').on('click', function() {
+			    deselect($('#likes'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){ // Powers JS pop up window for test commenting framework
+			function deselect(e) {
+  				$('.pop3').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#comments').on('click', function() {
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop3').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+			  $('.close').on('click', function() {
+			    deselect($('#comments'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script type="text/javascript">
+		function comment() {
+		    var input = document.getElementById("new_comment").value;
+			var para = document.createElement("div");
+			var para2 = document.createElement("p");
+			var node = document.createTextNode(input);
+			var node2 = document.createTextNode("~ By {{ user }}");
+			para.appendChild(node);
+			para2.appendChild(node2);
+			var element = document.getElementById("comment_pane");
+			element.appendChild(para);
+			element.appendChild(para2);
+		}
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			function deselect(e) {
+  				$('.pop4').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#edit').on('click', function() {
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop4').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+			  $('.close').on('click', function() {
+			    deselect($('#edit'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+</head>
+
+<body>
+
+<div class="container">
+	
+	<header>
+
+		<a href="/">
+
+			<figure class="home_button">
+
+				<img src="/static/home.png">
+
+			</figure>
+
+		</a>
+
+		{% block signup %}
+		{% if not session['logged_in'] %}
+		
+			<a href="/signup">
+
+						<figure class="signup">
+
+							<img src="/static/signup.png" width="50%">
+
+						</figure>
+
+					</a>
+
+					<a href="/login">
+
+						<figure class="login">
+
+							<img src="/static/login.png" width="50%">
+
+						</figure>
+
+					</a>
+
+		{% endif %}
+		{% endblock %}
+
+		{% block logout %}
+		{% if session['logged_in'] %}
+			<a href="/logout">
+
+				<figure class="logout">
+
+					<img src="/static/logout.png" width = "45.3%">
+
+				</figure>
+
+			</a>
+
+			<a href="/my_account">
+
+				<figure class="myaccount">
+
+					<img src="/static/account.png" width = "18%">
+
+				</figure>
+
+			</a>
+
+			<p id="user">Hello, {{ user }}</p>
+		{% endif %}
+		{% endblock %}
+
+			<figure class="apple">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+
+			<figure class="apple3">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+		
+			<div class="bar"></div>
+
+			<!-- This <div> is used soley for my persistent navigation bar -->
+
+			<nav class="menu">
+
+				<ul>
+			
+					<li><a href="/steve_jobs">Steve Jobs</a></li>
+
+					<li><a href="/reed_hastings">Reed Hastings</a></li>
+
+					<li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+					<li><a href="/jcr_licklider">JCR Licklider</a></li>
+					
+					<li><a href="/create_page">Create New Page</a></li>
+
+				</ul>
+
+			</nav>
+
+	<div class="jobs">
+
+		<div class="messagepop2 pop4">
+
+					<h3 class="comment">Edit page</h3>
+
+					<form method="post" class="share_with" id="edit_page" action="/creating_page">
+
+						<h4 class="edit_page">Title</h4>
+
+						<label for="title">Page title:</label>
+
+						<input type="text" name="title" id="title" value= "{{ title_start }}">
+
+						<br>
+
+						<h4 class="edit_page">Section 1</h4>
+
+						<label for="h3_1">Heading:</label>
+
+						<input type="text" name="h3_1" id="h3_1" value= "{{ h3_1_start }}">
+
+						<br>
+						<br>
+
+						<label for="p1">Paragraphs:</label>
+
+						<textarea rows="4" cols="50" name="p1" id="p1">{{ p1_start }}</textarea>
+						<textarea rows="4" cols="50" name="p2" id="p2">{{ p2_start }}</textarea>
+
+						<h4 class="edit_page">Section 2</h4>
+
+						<label for="h3_2">Heading:</label>
+
+						<input type="text" name="h3_2" id="h3_2" value= "{{ h3_2_start }}">
+
+						<br>
+						<br>
+
+						<label for="p3">Paragraphs:</label>
+
+						<textarea rows="4" cols="50" name="p3" id="p3">{{ p3_start }}</textarea>
+						<textarea rows="4" cols="50" name="p4" id="p4">{{ p4_start }}</textarea>
+
+						<h4 class="edit_page">Center-break</h4>
+
+						<label for="h2_1">Large heading:</label>
+
+						<input type="text" name="h2_1" id="h2_1" value= "{{ h2_1_start }}">
+
+						<br>
+						<br>
+
+						<label for="cap1">Image caption:</label>
+
+						<input type="text" name="cap1" id="cap1" value= "{{ cap1 }}">
+
+						<h4 class="edit_page">Section 3</h4>
+
+						<label for="h3_3">Heading:</label>
+
+						<input type="text" name="h3_3" id="h3_3" value= "{{ h3_3_start }}">
+
+						<br>
+						<br>
+
+						<label for="cap2">Image caption:</label>
+
+						<input type="text" name="cap2" id="cap2" value= "{{ cap2 }}">
+
+						<br>
+						<br>
+
+						<label for="p5">Paragraphs:</label>
+
+						<textarea rows="4" cols="50" name="p5" id="p5">{{ p5_start }}</textarea>
+						<textarea rows="4" cols="50" name="p6" id="p6">{{ p6_start }}</textarea>
+
+						<h4 class="edit_page">Section 4</h4>
+
+						<label for="h3_4">Heading:</label>
+
+						<input type="text" name="h3_4" id="h3_4" value= "{{ h3_4_start }}">
+
+						<br>
+						<br>
+
+						<label for="cap3">Image caption:</label>
+
+						<input type="text" name="cap3" id="cap3" value= "{{ cap3 }}">
+
+						<br>
+						<br>
+
+						<label for="p7">Paragraphs:</label>
+
+						<textarea rows="4" cols="50" name="p7" id="p7">{{ p7_start }}</textarea>
+						<textarea rows="4" cols="50" name="p8" id="p8">{{ p8_start }}</textarea>
+
+						<h4 class="edit_page">Section 5</h4>
+
+						<label for="h3_5">Heading:</label>
+
+						<input type="text" name="h3_5" id="h3_5" value= "{{ h3_5_start }}">
+
+						<br>
+						<br>
+
+						<label for="cap4">Image caption:</label>
+
+						<input type="text" name="cap4" id="cap4" value= "{{ cap4 }}">
+
+						<br>
+						<br>
+
+						<label for="p9">Paragraphs:</label>
+
+						<textarea rows="4" cols="50" name="p9" id="p9">{{ p9_start }}</textarea>
+						<textarea rows="4" cols="50" name="p10" id="p10">{{ p10_start }}</textarea>
+
+						<h4 class="edit_page">Section 6</h4>
+
+						<label for="h3_6">Heading:</label>
+
+						<input type="text" name="h3_6" id="h3_6" value= "{{ h3_6_start }}">
+
+						<br>
+						<br>
+
+						<label for="cap5">Image caption:</label>
+
+						<input type="text" name="cap5" id="cap5" value= "{{ cap5 }}">
+
+						<br>
+						<br>
+
+						<label for="p11">Paragraphs:</label>
+
+						<textarea rows="4" cols="50" name="p11" id="p11">{{ p11_start }}</textarea>
+
+						<h4 class="edit_page">Center-break</h4>
+
+						<label for="h2_2">Large heading (first):</label>
+
+						<input type="text" name="h2_2" id="h2_2" value= "{{ h2_2_start }}">
+
+						<br>
+						<br>
+
+						<label for="p12">Paragraphs:</label>
+
+						<textarea rows="4" cols="50" name="p12" id="p12">{{ p12_start }}</textarea>
+
+						<br>
+						<br>
+
+						<label for="h2_3">Large heading (second):</label>
+
+						<input type="text" name="h2_3" id="h2_3" value= "{{ h2_3_start }}">
+
+						<br>
+						<br>
+
+						<label for="p13">Paragraphs:</label>
+
+						<textarea rows="4" cols="50" name="p13" id="p13">{{ p13_start }}</textarea>
+
+						<h4 class="edit_page">Section 7</h4>
+
+						<label for="h3_7">Heading:</label>
+
+						<input type="text" name="h3_7" id="h3_7" value= "{{ h3_7_start }}">
+
+						<br>
+						<br>
+
+						<label for="p14">Paragraphs:</label>
+
+						<textarea rows="4" cols="50" name="p14" id="p14">{{ p14_start }}</textarea>
+						<textarea rows="4" cols="50" name="p15" id="p15">{{ p15_start }}</textarea>
+
+						<br>
+						<br>
+
+						<input id="share_button" class="share_with" type="submit" value="Update">
+
+					</form>
+
+				</div>
+
+				<button type="button" id="edit">Edit page</button>
+
+		<h1>{{ title }}</h1>
+
+		<figure>
+
+			<img src="/static/techfigures.jpg" width="25%">
+
+		</figure>
+
+	</div>
+
+	<div class="stevejobs2"></div>
+
+	</header>
+
+	<article>
+	
+			<div id="background_apple"></div>
+
+			<section class="background">
+
+			<h3 class="back2">{{ h3_1 }}</h3>
+
+				<p>{{ p1 }}</p>
+
+				<p>{{ p2 }}</p>
+
+			</section>
+
+			<section class="ceo">
+
+			<h3>{{ h3_2 }}</h3>
+
+				<p>{{ p3 }}</p>
+
+				<p>{{ p4 }}</p>
+
+			</section>
+
+		<div id="products3"></div>
+
+		<section class="products_jobs">
+
+		<h2 class="jobspic">{{ h2_1 }}</h2>
+
+			<figure> 
+
+				<img class="steve" src="/static/tech.jpg" width="45%">
+
+					<figcaption>{{ cap1 }}</figcaption>
+
+			</figure>
+
+		</section>
+
+			<div id="macintosh_ipod"></div>
+
+			<section class="mac">
+
+			<h3>{{ h3_3 }}</h3>
+			
+				<figure class="macpic"> 
+
+					<img src="/static/phones.jpg" width="60%">
+						
+						<figcaption>{{ cap2 }}</figcaption>
+
+				</figure>
+
+				<p>{{ p5 }}</p>
+			
+
+				<p>{{ p6 }}</p>
+			
+			</section>
+
+			<section class="ipod">
+
+			<h3>{{ h3_4 }}</h3>
+				
+				<figure class="ipodpic"> 
+
+					<img src="/static/servers.jpg" width = "75%">
+						
+						<figcaption>{{ cap3 }}</figcaption>
+
+				</figure>
+
+				<p>{{ p7 }}</p>
+
+				<p>{{ p8 }}</p>
+
+			</section>
+
+			<div id="iphone_ipad"></div>
+
+			<section class="iphone">
+
+			<h3>{{ h3_5 }}</h3>
+
+				<figure class="iphonepic"> 
+
+					<img src="/static/computers.png" width="80%">
+						
+						<figcaption>{{ cap4 }}</figcaption>
+
+				</figure>
+
+				<p>{{ p9 }}</p>
+
+				<p>{{ p10 }}</p>
+			
+			</section>
+
+			<section class="ipad">
+
+			<h3>{{ h3_6 }}</h3>
+
+				<figure class="ipadpic"> 
+
+					<img src="/static/tech2.jpg" width="60%">
+						
+						<figcaption>{{ cap5 }}</figcaption>
+
+				</figure>
+
+				<p>{{ p11 }}</p>
+
+			</section>
+
+		<section class="table">
+
+		<h2 class="table_head">{{ h2_2 }}</h2>
+
+			<p>{{ p12 }}</p>
+
+			</section>
+
+		<section class="list">
+
+		<h2 class="list_head">{{ h2_3 }}</h2>
+
+			<p>{{ p13 }}</p>
+
+		</section>
+
+	</article>
+		
+	<div id="death"></div>
+
+	<aside class="death">
+
+		<h3>{{ h3_7 }}</h3>
+		
+			<p>{{ p14 }}</p>
+
+			<p>{{ p15 }}</p>
+
+	</aside>
+
+</div>
+
+</body>
+
+</html>

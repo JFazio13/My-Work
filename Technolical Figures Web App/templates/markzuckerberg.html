@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>Mark Zuckerberg</title>
+
+		<link rel="stylesheet" href="/static/css/styles.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){ // Same as stevejobs.html, minus commenting framework
+
+		{% block liked %}
+
+		{% if liked == 1 %}
+			$(".like_main").hide();
+			$(".liked_main").show();
+		{% endif %}
+
+		{% if liked == 0 %}
+			$(".liked_main").hide();
+		{% endif %}
+
+		{% endblock %}
+
+			$("#new_like").hide();
+
+	    	$(".like_main").click(function() {
+	    		$(".like_main").hide();
+	        	$(".liked_main").show();
+	        	$("#old_like").hide();
+	        	$("#new_like").show();
+	    	});
+
+	    	$(".liked_main").click(function() {
+	        	$(".like_main").show();
+	        	$(".liked_main").hide();
+	        	$("#new_like").hide();
+	        	$("#old_like").show();
+	    	});
+
+	    	function deselect(e) {
+  				$('.pop').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#share').on('click', function() {
+			  	$("#success").hide();
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+				$("#share_button").click(function() {
+	        		$("#success").slideFadeToggle();
+	    	 	});
+
+			  $('.close').on('click', function() {
+			    deselect($('#share'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			function deselect(e) {
+  				$('.pop2').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#likes').on('click', function() {
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop2').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+			  $('.close').on('click', function() {
+			    deselect($('#likes'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){ // Powers JS pop up window for test commenting framework
+			function deselect(e) {
+  				$('.pop3').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#comments').on('click', function() {
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop3').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+			  $('.close').on('click', function() {
+			    deselect($('#comments'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script type="text/javascript">
+		function comment() {
+		    var input = document.getElementById("new_comment").value;
+			var para = document.createElement("div");
+			var para2 = document.createElement("p");
+			var node = document.createTextNode(input);
+			var node2 = document.createTextNode("~ By {{ user }}");
+			para.appendChild(node);
+			para2.appendChild(node2);
+			var element = document.getElementById("comment_pane");
+			element.appendChild(para);
+			element.appendChild(para2);
+		}
+	</script>
+
+	</head>
+	<body>
+
+	<div class="container">
+
+		<header>
+
+		<a href="/">
+
+			<figure class="home_button">
+
+				<img src="/static/home.png">
+
+			</figure>
+
+		</a>
+
+		{% block signup %}
+		{% if not session['logged_in'] %}
+		
+			<a href="/signup">
+
+						<figure class="signup">
+
+							<img src="/static/signup.png" width="50%">
+
+						</figure>
+
+					</a>
+
+					<a href="/login">
+
+						<figure class="login">
+
+							<img src="/static/login.png" width="50%">
+
+						</figure>
+
+					</a>
+
+		{% endif %}
+		{% endblock %}
+
+		{% block logout %}
+		{% if session['logged_in'] %}
+			<a href="/logout">
+
+				<figure class="logout">
+
+					<img src="/static/logout.png" width = "45.3%">
+
+				</figure>
+
+			</a>
+
+			<a href="/my_account">
+
+				<figure class="myaccount">
+
+					<img src="/static/account.png" width = "18%">
+
+				</figure>
+
+			</a>
+
+			<p id="user">Hello, {{ user }}</p>
+		{% endif %}
+		{% endblock %}
+
+			<figure class="apple">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+
+			<figure class="apple3">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+		
+			<div class="bar"></div>
+
+			<!-- This <div> is used soley for my persistent navigation bar -->
+
+			<nav class="menu">
+
+				<ul>
+			
+					<li><a href="/steve_jobs">Steve Jobs</a></li>
+
+					<li><a href="/reed_hastings">Reed Hastings</a></li>
+
+					<li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+					<li><a href="/jcr_licklider">JCR Licklider</a></li>
+					
+					<li><a href="/create_page">Create New Page</a></li>
+
+				</ul>
+
+			</nav>
+		
+		<h1 class="mark2">Mark Zuckerberg</h1>	
+
+		<figure>
+
+			<img class="mark" src="/static/mz.jpg" alt= "Mark Zuckerberg"> 
+
+			<figcaption class="mark3">Figure 1: Mark Zuckerberg</figcaption>
+
+ 		</figure>
+
+ 		<div class="head">
+
+			<p>Mark Elliot Zuckerberg (born May 14, 1984) is an American computer programmer and Internet entrepreneur. He is best known as one of five co-founders of the social networking website Facebook. Zuckerberg is the chairman and chief executive of Facebook, Inc. His personal wealth, as of July 2015, is estimated to be $38.6 billion. Zuckerberg receives a one-dollar salary as CEO of Facebook.<a href="https://en.wikipedia.org/wiki/Mark_Zuckerberg"> [1]</a></p>
+
+		</div>
+
+		{% block like %}
+	{% if session['logged_in'] %}
+
+		<div class="messagepop pop">
+
+			<h3 class="share">Share with another user</h3>
+
+		  <form method="post" id="share_with" action="/share_mark">
+
+		    <select name="user">
+		    	<option value="">Select user:</option>
+				{% for i in user_list %}
+					<option value="{{ i }}">{{ i }}</option>
+				{% endfor %}
+
+		  	</select>
+
+			<input id="share_button" class="share_with" type="submit" value="Share">
+
+			<div id="success">Shared successfully</div>
+
+		  </form>
+
+		</div>
+
+		<div class="messagepop pop2">
+
+			<h3 class="share">Users who like Mark Zuckerberg</h3>
+
+			<p class="users_liked" id="old_like">{{mark_likes}}</p>
+
+			{% set new_like = mark_likes + ", " + user %}
+
+			<p class="users_liked" id="new_like">{{ new_like }}</p>
+
+		</div>
+
+		<div class="messagepop2 pop3">
+
+			<h3 class="comment">Comments</h3>
+				{% for i in comment_list %}
+		  			<div class="comments">{{ i }}</div>
+		  			<div class="comments">~ By {{ comment_by_list[loop.index - 1] }}</div>
+		  			<div id="line">__________________________________________________________________________________________________________</div>
+				{% endfor %}
+
+			<div id="comment_pane"></div>
+
+			<form method="post" class="share_with" action="/comment_mark">
+
+				<textarea rows="4" cols="50" name="new_comment" id="new_comment" autofocus> </textarea>
+
+				<input id="share_button" class="share_with" type="submit" value="Post comment" onclick="comment();">
+
+			</form>
+
+		</div>
+
+		<a href="/share" id="share" class="share_main"><img src="/static/share.png" width="2.7%"></a>
+
+		<a href="/likes" id="likes" class="likes_main"><img src="/static/likes.png" width="3.5%"></a>
+			
+		<a href="/like_mark" class="like_main"><img src="/static/like.png" width="3.5%"></a>
+
+		<a href="/like_mark" class="liked_main"><img src="/static/liked.png" width="3.5%"></a>
+
+		<a href="/comments" id="comments" class="share_main"><img src="/static/comment.png" width="2.5%"></a>
+
+	{% endif %}
+	{% endblock %}
+
+		<div class="zuckerberg"></div>
+		
+ 			</header>
+
+		<article>
+
+		<div id="background_apple"></div>
+
+		<section class="background2">
+
+			<h2 class="found">Short Biography</h2>
+
+			<p>
+			Zuckerberg was born in 1984 in White Plains, New York. He is the son of dentist Edward Zuckerberg and psychiatrist Karen Kempner. He and his three sisters, Randi, Donna, and Arielle, were brought up in Dobbs Ferry, New York, a small Westchester County village about 10 miles north of New York City.<a href="https://en.wikipedia.org/wiki/Mark_Zuckerberg"> [2]</a> At Ardsley High School, Zuckerberg excelled in classics. He transferred to Phillips Exeter Academy in New Hampshire in his junior year, where he won prizes in math, astronomy, physics and classical studies. On his college application, Zuckerberg claimed that he could read and write French, Hebrew, Latin, and ancient Greek. By the time he began classes at Harvard, Zuckerberg had already achieved a "reputation as a programming prodigy".<a href="https://en.wikipedia.org/wiki/Mark_Zuckerberg"> [3]</a> He created Facebook on Feburary 4th 2004, which was then called "thefacebook". His personal wealth, as of July 2015, is estimated to be $38.6 billion. 
+			</p>
+				
+			 
+			<h3 class="contro">Start of Facebook</h3>
+			<p>
+			In late 2013, Zuckerberg created a program he initially called Facemash, that let students select the best looking person from a choice of photos.<a href="https://en.wikipedia.org/wiki/Mark_Zuckerberg"> [1]</a> The site went up over a weekend; but by Monday morning, the college shut it down because its popularity had overwhelmed one of Harvard's network switches and prevented students from accessing the Internet. In addition, many students complained that their photos were being used without permission. Zuckerberg apologized publicly, and the student paper ran articles stating that his site was "completely improper". The following semester, in January 2004, Zuckerberg began writing code for a new website. On February 4, 2004, Zuckerberg launched "Thefacebook", originally located at thefacebook.com.<a href="https://en.wikipedia.org/wiki/Facebook"> [2]</a>
+			</p>
+			<h3 class="contro">Globalization of Facebook</h3>
+			<p>
+			After Zuckerberg moved to Palo Alto, California with Moskovitz and some friends, they leased a small house that served as an office. Over the summer, Zuckerberg met Peter Thiel who invested in the company. They got their first office in mid-2004. According to Zuckerberg, the group planned to return to Harvard but eventually decided to remain in California.<a href="https://en.wikipedia.org/wiki/History_of_Facebook">[3]  </a>	 in April 2009, Zuckerberg sought the advice of former Netscape CFO Peter Currie about financing strategies for Facebook. On July 21, 2010, Zuckerberg reported that the company reached the 500 million-user mark.<a href="https://en.wikipedia.org/wiki/Facebook"> [2]</a> Today, Facebook is truely a global company, with international influence. It has about 11,000 employees, offices around the world. 
+			</p>
+
+		</section>
+
+		<section class="ceo2">
+
+			<h2 class="found">Zuckerberg in the Media</h2>
+
+			<!-- Commented out because this looks out of place: 
+
+			<h3 class="contro">The Social Network</h3>
+
+			-->
+
+			<p>
+			A movie based on Zuckerberg and the founding years of Facebook, The Social Network was released on October 1, 2010, and stars Jesse Eisenberg as Zuckerberg. After Zuckerberg was told about the film, he responded, "I just wished that nobody made a movie of me while I was still alive." Also, after the film's script was leaked on the Internet and it was apparent that the film would not portray Zuckerberg in a wholly positive light, he stated that he wanted to establish himself as a "good guy".<a href="http://www.cnet.com/news/zuckerberg-in-the-hot-seat-at-d8/">[4]</a> The film is based on the book The Accidental Billionaires by Ben Mezrich, which the book's publicist once described as "big juicy fun" rather than "reportage". The film's screenwriter Aaron Sorkin told New York magazine, "I don't want my fidelity to be the truth; I want it to be storytelling", adding, "What is the big deal about accuracy purely for accuracy's sake, and can we not have the true be the enemy of the good?"</p>
+			
+			<p>Upon winning the Golden Globes award for Best Picture on January 16, 2011, producer Scott Rudin thanked Facebook and Zuckerberg "for his willingness to allow us to use his life and work as a metaphor through which to tell a story about communication and the way we relate to each other.” Sorkin, who won for Best Screenplay, retracted some of the impressions given in his script:</p>
+				
+			<p>"I wanted to say to Mark Zuckerberg tonight, if you're watching, Rooney Mara's character makes a prediction at the beginning of the movie. She was wrong. You turned out to be a great entrepreneur, a visionary, and an incredible altruist."</p>
+				
+				
+			<p>On January 29, 2011, Zuckerberg made a surprise guest appearance on Saturday Night Live, which was being hosted by Jesse Eisenberg. They both said it was the first time they ever met. Eisenberg asked Zuckerberg, who had been critical of his portrayal by the film, what he thought of the movie. Zuckerberg replied, "It was interesting."[ In a subsequent interview about their meeting, Eisenberg explains that he was "nervous to meet him, because I had spent now, a year and a half thinking about him ..." He adds, "Mark has been so gracious about something that’s really so uncomfortable ... The fact that he would do SNL and make fun of the situation is so sweet and so generous. It’s the best possible way to handle something that, I think, could otherwise be very uncomfortable."</p>
+
+		</section>
+
+		</article>
+
+		<div id="background_apple2"></div>
+
+		<article class="mac3">
+
+			<h3>Miscellaneous appearances</h3>
+			<p>
+			Zuckerberg voiced himself on an episode of The Simpsons titled "Loan-a Lisa", which first aired on October 3, 2010. In the episode, Lisa Simpson and her friend Nelson encounter Zuckerberg at an entrepreneurs' convention. Zuckerberg tells Lisa that she does not need to graduate from college to be wildly successful, referencing Bill Gates and Richard Branson as examples.<a href="http://www.vulture.com/2010/07/facebook_creator_mark_zuckerbe.html"> [5]</a></p>
+
+			<p>On October 9, 2010, Saturday Night Live lampooned Zuckerberg and Facebook. Andy Samberg played Zuckerberg. The real Zuckerberg was reported to have been amused: "I thought this was funny."</p>
+
+			<p>Stephen Colbert awarded a "Medal of Fear" to Zuckerberg at the Rally to Restore Sanity and/or Fear on October 30, 2010, "because he values his privacy much more than he values yours".</p>
+			
+			<h3 class="contro">Major Lawsuits</h3>
+			<ul>
+			<li>Eduardo Saverin Lawsuit-2008 </li>
+			<li>ConnectU-2004</li>
+			<li>Pakistan criminal investigation-2010</li>
+			<li>Paul Ceglia-2010</li>
+
+		</ul>
+
+		</article>
+
+		<aside class="ipod">
+
+			<h2 class=found>Timeline</h2>
+			<table border= "1">
+				<tr>
+    		<th>Date</th>
+   			<th>Event</th> 
+
+  			</tr> 
+  			<tr>
+    		<td>May 1984</td>
+    		<td>	Zuckerberg born in White Planes, NY</td> 
+    		
+  		</tr>
+  		<tr>
+    		<td>January 2004</td>
+   			 <td>	Facebook lauched as "thefacebook"</td>
+  		</tr>
+  		<tr>
+    		<td>June 2004</td>
+   			 <td>	First office in California</td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>May 2005</td>
+   			 <td>	Major investment of $12.7M by Accel Partners </td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>September 2005</td>
+   			 <td>	Highschool version of Facebook released</td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>September 2006</td>
+   			 <td>	Facebook opens to everyone</td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>October 2007</td>
+   			 <td>	Microsoft purchases 1.6% share of Facebook for $240 million, giving it a total implied value of around $15 billion</td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>September 2009</td>
+   			 <td>	Facebook is cash flow positive</td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>July 2010</td>
+   			 <td>	500 million users on Facebook</td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>Feburary 2012</td>
+   			 <td>	Facebook goes public with initial share price of $38</td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>October 2012</td>
+   			 <td>	Facebook hits 1 billion users</td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>January 2014</td>
+   			 <td>Facebook valued at over $134B</td> 
+   			 
+  		</tr>
+  		<tr>
+    		<td>February 2014</td>
+   			 <td>Facebook buys Whatsapp for $19B</td>    			 
+   			 
+  		</tr>
+
+			</table>
+
+			<!-- Commented out because this graph has little reevancy and no place to go:
+
+			<figure>
+			<img src="/static/graph.PNG" alt= "Graph of Facebook's user base"> 
+			<figcaption>Figure 2- Facebook's user base from 2004 to 2013</figcaption>
+			</figure>
+
+			-->
+
+		</aside>
+
+		<footer>
+			<h2 class="help">Citations</h2>
+			
+			<p>
+			"Mark Zuckerberg." Wikipedia. Wikimedia Foundation. Web. 2 Oct. 2015.
+			<a href="https://en.wikipedia.org/wiki/Mark_Zuckerberg"> Mark Zuckerberg Wikipedia </a>
+		</p>
+		<p>
+			"Facebook." Wikipedia. Wikimedia Foundation. Web. 2 Oct. 2015.
+			<a href="https://en.wikipedia.org/wiki/Facebook">Facebook Wikipedia</a>
+		</p>
+		
+		<p>
+			"History of Facebook." Wikipedia. Wikimedia Foundation. Web. 2 Oct. 2015.
+			<a href="https://en.wikipedia.org/wiki/History_of_Facebook">History of Facebook  </a>
+		</p>
+		<p>
+		Fried, Ina. "Zuckerberg in the Hot Seat at D8 - CNET." CNET. Web. 5 Oct. 2015.
+		<a href="http://www.cnet.com/news/zuckerberg-in-the-hot-seat-at-d8/">CNET Article</a>
+		
+		</p>
+		<p>
+		Adalian, Josef. "Facebook Creator Mark Zuckerberg to Get Yellow on The Simpsons." Vulture. 21 July 2010. Web. 8 Oct. 2015.
+		<a href="http://www.vulture.com/2010/07/facebook_creator_mark_zuckerbe.html"> Vulture Article</a>
+		</p>
+
+		</footer>
+
+		</div>
+
+	</body>
+</html>

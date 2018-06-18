@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Steve Jobs</title>
+
+	<link rel="stylesheet" href="/static/css/styles.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			{% block liked %}
+
+			{% if liked == 1 %} // Powers color-changing heart icon
+				$(".like_main").hide();
+				$(".liked_main").show();
+			{% endif %}
+
+			{% if liked == 0 %}
+				$(".liked_main").hide();
+			{% endif %}
+
+			{% endblock %}
+
+			$("#new_like").hide();
+
+	    	$(".like_main").click(function() {
+	    		$(".like_main").hide();
+	        	$(".liked_main").show();
+	        	$("#old_like").hide();
+	        	$("#new_like").show();
+	    	});
+
+	    	$(".liked_main").click(function() {
+	        	$(".like_main").show();
+	        	$(".liked_main").hide();
+	        	$("#new_like").hide();
+	        	$("#old_like").show();
+	    	});
+
+	    	function deselect(e) { // Powers JS pop up window for sharing pages
+  				$('.pop').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#share').on('click', function() {
+			  	$("#success").hide();
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+				$("#share_button").click(function() {
+	        		$("#success").slideFadeToggle();
+	    	 	});
+
+			  $('.close').on('click', function() {
+			    deselect($('#share'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){ // Powers JS pop up window for user who like this page
+			function deselect(e) {
+  				$('.pop2').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#likes').on('click', function() {
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop2').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+			  $('.close').on('click', function() {
+			    deselect($('#likes'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){ // Powers JS pop up window for test commenting framework
+			function deselect(e) {
+  				$('.pop3').slideFadeToggle(function() {
+    				e.removeClass('selected');
+  				});    
+			}
+
+			$(function() {
+			  $('#comments').on('click', function() {
+			    if($(this).hasClass('selected')) {
+			      deselect($(this));               
+			    } else {
+			      $(this).addClass('selected');
+			      $('.pop3').slideFadeToggle();
+			    }
+			    return false;
+			  });
+
+			  $('.close').on('click', function() {
+			    deselect($('#comments'));
+			    return false;
+			  });
+			});
+
+			$.fn.slideFadeToggle = function(easing, callback) {
+			  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+			};
+		});
+	</script>
+
+	<script type="text/javascript">
+		function comment() {
+		    var input = document.getElementById("new_comment").value;
+			var para = document.createElement("div");
+			var para2 = document.createElement("p");
+			var node = document.createTextNode(input);
+			var node2 = document.createTextNode("~ By {{ user }}");
+			para.appendChild(node);
+			para2.appendChild(node2);
+			var element = document.getElementById("comment_pane");
+			element.appendChild(para);
+			element.appendChild(para2);
+		}
+	</script>
+
+</head>
+
+<body>
+
+<div class="container">
+	
+	<header>
+
+		<a href="/">
+
+			<figure class="home_button">
+
+				<img src="/static/home.png">
+
+			</figure>
+
+		</a>
+
+		{% block signup %}
+		{% if not session['logged_in'] %}
+		
+			<a href="/signup">
+
+						<figure class="signup">
+
+							<img src="/static/signup.png" width="50%">
+
+						</figure>
+
+					</a>
+
+					<a href="/login">
+
+						<figure class="login">
+
+							<img src="/static/login.png" width="50%">
+
+						</figure>
+
+					</a>
+
+		{% endif %}
+		{% endblock %}
+
+		{% block logout %}
+		{% if session['logged_in'] %}
+			<a href="/logout">
+
+				<figure class="logout">
+
+					<img src="/static/logout.png" width = "45.3%">
+
+				</figure>
+
+			</a>
+
+			<a href="/my_account">
+
+				<figure class="myaccount">
+
+					<img src="/static/account.png" width = "18%">
+
+				</figure>
+
+			</a>
+
+			<p id="user">Hello, {{ user }}</p>
+		{% endif %}
+		{% endblock %}
+
+			<figure class="apple">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+
+			<figure class="apple3">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+		
+			<div class="bar"></div>
+
+			<!-- This <div> is used soley for my persistent navigation bar -->
+
+			<nav class="menu">
+
+				<ul>
+			
+					<li><a href="/steve_jobs">Steve Jobs</a></li>
+
+					<li><a href="/reed_hastings">Reed Hastings</a></li>
+
+					<li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+					<li><a href="/jcr_licklider">JCR Licklider</a></li>
+					
+					<li><a href="/create_page">Create New Page</a></li>
+
+				</ul>
+
+			</nav>
+
+	<div class="jobs">
+
+		<h1>Steve Jobs</h1>
+
+		<figure>
+
+			<img src="/static/steve.jpg" alt="Steve Jobs">
+				
+				<figcaption class="sjcap" >Steve Jobs in 2007</figcaption>
+
+		</figure>
+
+	</div>
+
+	{% block like %}
+	{% if session['logged_in'] %}
+
+		<div class="messagepop pop">
+
+			<h3 class="share">Share with another user</h3>
+
+		  <form method="post" class="share_with" action="/share_steve">
+
+		    <select name="user">
+		    		<option value="">Select user:</option>
+				{% for i in user_list %}
+					<option value="{{ i }}">{{ i }}</option>
+				{% endfor %}
+
+		  	</select>
+
+			<input id="share_button" class="share_with" type="submit" value="Share">
+
+			<div id="success">Shared successfully</div>
+
+		  </form>
+
+		</div>
+
+		<div class="messagepop pop2">
+
+			<h3 class="share">Users who like Steve Jobs</h3>
+
+			<p class="users_liked" id="old_like">{{steve_likes}}</p>
+
+			{% set new_like = steve_likes + ", " + user %}
+
+			<p class="users_liked" id="new_like">{{ new_like }}</p>
+
+		</div>
+
+		<div class="messagepop2 pop3">
+
+			<h3 class="comment">Comments</h3>
+				{% for i in comment_list %}
+		  			<div class="comments">{{ i }}</div>
+		  			<div class="comments">~ By {{ comment_by_list[loop.index - 1] }}</div>
+		  			<div id="line">__________________________________________________________________________________________________________</div>
+				{% endfor %}
+
+			<div id="comment_pane"></div>
+
+			<form method="post" class="share_with" action="/comment_steve">
+
+				<textarea rows="4" cols="50" name="new_comment" id="new_comment" autofocus> </textarea>
+
+				<input id="share_button" class="share_with" type="submit" value="Post comment" onclick="comment();">
+
+			</form>
+
+		</div>
+
+		<a href="/share" id="share" class="share_main"><img src="/static/share.png" width="2.7%"></a>
+
+		<a href="/likes" id="likes" class="likes_main"><img src="/static/likes.png" width="3.5%"></a>
+			
+		<a href="/like_steve" class="like_main"><img src="/static/like.png" width="3.5%"></a>
+
+		<a href="/like_steve" class="liked_main"><img src="/static/liked.png" width="3.5%"></a>
+
+		<a href="/comments" id="comments" class="share_main"><img src="/static/comment.png" width="2.5%"></a>
+
+	{% endif %}
+	{% endblock %}
+
+	<div class="stevejobs"></div>
+
+	</header>
+
+	<article>
+	
+			<div id="background_apple"></div>
+
+			<section class="background">
+
+			<h3 class="back2">Background Info and Early Life</h3>
+
+				<p>Steven Paul Jobs (February 24, 1955 – October 5, 2011) was an American businessman. He was best known as the co-founder, chairman, and chief executive officer (CEO) of Apple Inc.; CEO and largest shareholder of Pixar Animation Studios; a member of The Walt Disney Company's board of directors following its acquisition of Pixar; and founder, chairman, and CEO of NeXT Inc. Jobs is widely recognized as a pioneer of the microcomputer revolution of the 1970s, along with Apple co-founder Steve Wozniak. Shortly after his death, Jobs's official biographer, Walter Isaacson, described him as the "creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing.”</p>
+
+				<p>Adopted at birth in San Francisco, and raised in the San Francisco Bay Area during the 1960s, Jobs' countercultural lifestyle was a product of his time. As a senior at Homestead High School, in Cupertino, California, his two closest friends were the older engineering student (and Homestead High alumnus) Wozniak and his countercultural girlfriend, the artistically inclined Homestead High junior Chrisann Brennan. Jobs briefly attended Reed College in 1972 before dropping out, deciding to travel through India in 1974 and study Buddhism.</p>
+
+			</section>
+
+			<section class="ceo">
+
+			<h3>Apple’s Primary Founder and Most Iconic CEO</h3>
+
+				<p>Jobs co-founded Apple in 1976 to sell Wozniak's Apple I personal computer. The duo gained fame and wealth a year later for the Apple II, one of the first highly successful mass-produced personal computers. In 1979, after a tour of Xerox PARC, Jobs saw the commercial potential of the Xerox Alto, which was mouse-driven and had a graphical user interface (GUI). This led to development of the failed Apple Lisa in 1983, followed by the successful Macintosh in 1984. In addition to being the first mass-produced computer with a GUI, the Macintosh instigated the sudden rise of the desktop publishing industry in 1985 with the addition of the Apple LaserWriter, the first laser printer to feature vector graphics.</p>
+
+				<p>After leaving Apple, Jobs took a few of its members with him to found NeXT, a computer platform development company specializing in state-of-the-art computers for higher-education and business markets. In addition, Jobs helped to initiate the development of the visual effects industry when he funded the spinout of the computer graphics division of George Lucas's company Lucasfilm in 1986. The new company, Pixar, would eventually produce the first fully computer-animated film, Toy Story—an event made possible in part due to Jobs's financial support. In 1997, Apple purchased NeXT, allowing Jobs to become the former's CEO once again. He would return the company, which was on the verge of bankruptcy, back to profitability. Beginning in 1997 with the "Think different" advertising campaign, Jobs worked closely with designer Jonathan Ive to develop a line of products that would have larger cultural ramifications: the iMac, iTunes, Apple Stores, the iPod, the iTunes Store, the iPhone, the App Store, and the iPad. Mac OS was also revamped into Mac OS X, based on NeXT's NeXTSTEP platform. Jobs was diagnosed with a pancreatic neuroendocrine tumor in 2003 and died of respiratory arrest related to the tumor on October 5, 2011.</p>
+
+			</section>
+
+		<div id="products3"></div>
+
+		<section class="products_jobs">
+
+		<h2 class="jobspic">Revolutionary Products Under Jobs' Lead</h2>
+
+			<figure> 
+
+				<img class="steve" src="/static/steveiphone.jpg" alt="Steve with an iPhone">
+
+					<figcaption>Steve Jobs holding a white iPhone 4 at WWDC 2010</figcaption>
+
+			</figure>
+
+		</section>
+
+			<div id="macintosh_ipod"></div>
+
+			<section class="mac">
+
+			<h3>Macintosh</h3>
+			
+				<figure class="macpic"> 
+
+					<img src="/static/mac.png" alt="The original Macintosh">
+						
+						<figcaption>The original Macintosh (1984)</figcaption>
+
+				</figure>
+
+				<p>The Macintosh (branded as Mac since 1998) is a series of personal computers (PCs) designed, developed, and marketed by Apple Inc. Steve Jobs introduced the original Macintosh computer on January 24, 1984. This was the first mass-market personal computer featuring an integral graphical user interface and mouse. This first model was later renamed to "Macintosh 128k" for uniqueness amongst a populous family of subsequently updated models which are also based on Apple's same proprietary architecture. Since 1998, Apple has largely phased out the Macintosh name in favor of "Mac", though the product family has been nicknamed "Mac" or "the Mac" since the development of the first model.</p>
+			
+
+				<p>In 1998, after the return of Steve Jobs, Apple consolidated its multiple consumer-level desktop models into the all-in-one iMac G3, which became a commercial success and revitalized the brand. Since their transition to Intel processors in 2006, the complete lineup is entirely based on said processors and associated systems. Its current lineup comprises three desktops (the all-in-one iMac, entry-level Mac mini, and the Mac Pro tower graphics workstation), and four laptops (the Macbook, MacBook Air, MacBook Pro, and MacBook Pro with Retina display). Its Xserve server was discontinued in 2011 in favor of the Mac Mini and Mac Pro.</p>
+			
+			</section>
+
+			<section class="ipod">
+
+			<h3>iPod</h3>
+				
+				<figure class="ipodpic"> 
+
+					<img src="/static/ipods.jpg" alt="iPods">
+						
+						<figcaption>Various models of iPod</figcaption>
+
+				</figure>
+
+				<p>The iPod is a line of portable media players and multi-purpose pocket computers designed and marketed by Apple Inc. The first line was released on October 23, 2001, about 8½ months after iTunes (Macintosh version) was released. The most recent iPod redesigns were announced on July 15, 2015. There are three current versions of the iPod: the ultra-compact iPod Shuffle, the compact iPod Nano and the touchscreen iPod Touch.</p>
+
+				<p>Apple's iTunes software (and other alternative software) can be used to transfer music, photos, videos, games, contact information, e-mail settings, Web bookmarks, and calendars, to the devices supporting these features from computers using certain versions of Apple Macintosh and Microsoft Windows operating systems.</p>
+
+			</section>
+
+			<div id="iphone_ipad"></div>
+
+			<section class="iphone">
+
+			<h3>iPhone</h3>
+
+				<figure class="iphonepic"> 
+
+					<img src="/static/iphone.jpg" alt="iPhone 3G">
+						
+						<figcaption>An iPhone 3G with an ejected SIM card tray</figcaption>
+
+				</figure>
+
+				<p>iPhone is a line of smartphones designed and marketed by Apple Inc. They run Apple's iOS mobile operating system. The first generation iPhone was released on June 29, 2007; the most recent iPhone models are the iPhone 6s and iPhone 6s Plus, which were unveiled at a special event on September 9, 2015.</p>
+
+				<p>The user interface is built around the device's multi-touch screen, including a virtual keyboard. The iPhone has Wi-Fi and can connect to cellular networks. An iPhone can shoot video (though this was not a standard feature until the iPhone 3GS), take photos, play music, send and receive email, browse the web, send texts, GPS navigation, record notes, do mathematical calculations, and receive visual voicemail. Other functions—video games, reference works, social networking, etc.—can be enabled by downloading application programs (‘apps’); as of October 2013, the App Store offered more than one million apps by Apple and third parties and is ranked as the world's second largest mobile software distribution network of its kind (by number of currently available applications).</p>
+			
+			</section>
+
+			<section class="ipad">
+
+			<h3>iPad</h3>
+
+				<figure class="ipadpic"> 
+
+					<img src="/static/ipad.jpg" alt="iPad and Steve">
+						
+						<figcaption>Steve Jobs holding an iPad</figcaption>
+
+				</figure>
+
+				<p>iPad is an iOS-based line of tablet computers designed and marketed by Apple Inc. The first iPad was released on April 3, 2010; the most recent iPad models are the iPad Air 2, released on October 22, 2014, and the iPad Mini 4, released on September 9, 2015. The user interface is built around the device's multi-touch screen, including a virtual keyboard. The iPad includes built-in Wi-Fi and cellular connectivity on select models. As of January 2015, there have been over 250 million iPads sold.</p>
+
+			</section>
+
+		<section class="table">
+
+		<h2 class="table_head">Table of iOS Releases Under Steve Jobs</h2>
+
+			<table class="tab">
+
+				<tr>
+					
+					<th>Verison</th>
+
+					<th>Notable Features</th>
+
+					<th>Release Date</th>
+
+					<th>Corresponding Hardware</th>
+
+				</tr>
+
+				<tr>
+
+					<td>iPhone OS 1</td>
+
+					<td><ul>
+
+							<li>Initial release</li>
+							<li>Powerful mobile OS</li>
+							<li>"Five years ahead" of any other mobile software</li>
+						
+					</ul></td>
+
+					<td>June 29, 2007</td>
+
+					<td>iPhone (original)</td>
+					
+				</tr>
+
+				<tr>
+
+					<td>iPhone OS 2</td>
+
+					<td><ul>
+
+							<li>App Store</li>
+							<li>3rd party applications</li>
+						
+					</ul></td>
+
+					<td>July 11, 2008</td>
+
+					<td>iPhone 3G</td>
+
+				</tr>
+
+				<tr>
+					
+					<td>iPhone OS 3</td>
+
+					<td><ul>
+
+							<li>Multimedia messaging</li>
+							<li>Cut, copy, and paste</li>
+						
+					</ul></td>
+
+					<td>June 17, 2009</td>
+
+					<td>iPhone 3GS</td>
+
+				</tr>
+
+				<tr>
+					
+					<td>iOS 4</td>
+
+					<td><ul>
+
+							<li>Nomenclature changed from "iPhone OS" to "iOS"</li>
+							<li>Multitasking</li>
+							<li>FaceTime (iPhone 4 only, at the time)</li>
+							<li>Custom wallpapers</li>
+						
+					</ul></td>
+
+					<td>June 21, 2010</td>
+
+					<td>iPhone 4</td>
+
+				</tr>
+
+				<tr>
+					
+					<td>iOS 5</td>
+
+					<td><ul>
+
+							<li>Siri (iPhone 4S only, at the time)</li>
+							<li>iMessage</li>
+							<li>iCloud</li>
+						
+					</ul></td>
+
+					<td>October 12, 2011</td>
+
+					<td>iPhone 4S</td>
+
+				</tr>
+				
+			</table>
+
+			</section>
+
+		<section class="list">
+
+		<h2 class="list_head">Comprehensive List of Jobsian Product Lines</h2>
+
+			<ul>
+				
+				<li>Apple I/II</li>
+
+				<li>Macintosh</li>
+
+				<li>iMac</li>
+
+				<li>MacBook</li>
+
+				<li>MacBook Pro</li>
+
+				<li>MacBook Air</li>
+
+				<li>iPod</li>
+
+				<li>iPod Mini</li>
+
+				<li>iPod Shuffle</li>
+
+				<li>iPod Nano</li>
+
+				<li>iPod Touch</li>
+
+				<li>Apple TV</li>
+
+				<li>iPhone</li>
+
+				<li>iPhone 3G</li>
+
+				<li>iPhone 3GS</li>
+
+				<li>iPhone 4</li>
+
+				<li>iPhone 4S</li>
+
+				<li>iPad</li>
+
+			</ul>
+
+		</section>
+
+	</article>
+		
+	<div id="death"></div>
+
+	<aside class="death">
+
+		<h3>Steve's Death</h3>
+		
+			<p>Jobs died at his Palo Alto, California, home around 3 p.m. on October 5, 2011, due to complications from a relapse of his previously treated islet-cell neuroendocrine pancreatic cancer, resulting in respiratory arrest. He had lost consciousness the day before, and died with his wife, children, and sisters at his side. His sister, Mona Simpson, described his death thus: "Steve’s final words, hours earlier, were monosyllables, repeated three times. Before embarking, he’d looked at his sister Patty, then for a long time at his children, then at his life’s partner, Laurene, and then over their shoulders past them. Steve’s final words were: OH WOW. OH WOW. OH WOW." He then lost consciousness and died several hours later.[86] A small private funeral was held on October 7, 2011, of which details were not revealed out of respect to Jobs's family. At the time of his death, his biological mother, Joanne Schieble Simpson, was living in a nursing home and suffering from dementia. She was not told that he died.</p>
+
+			<p>Apple and Pixar each issued announcements of his death. Apple announced on the same day that they had no plans for a public service, but were encouraging "well-wishers" to send their remembrance messages to an email address created to receive such messages. Both Apple and Microsoft flew their flags at half-staff throughout their respective headquarters and campuses. Bob Iger ordered all Disney properties, including Walt Disney World and Disneyland, to fly their flags at half-staff from October 6 to 12, 2011. For two weeks following his death, Apple's corporate Web site displayed a simple page, showing Jobs's name and lifespan next to his grayscale portrait. A private memorial service for Apple employees was held on October 19, 2011, on the Apple Campus in Cupertino. Present were Cook, Bill Campbell, Norah Jones, Al Gore, and Coldplay, and Jobs's widow, Laurene. Some of Apple's retail stores closed briefly so employees could attend the memorial. A video of the service is available on Apple's website.</p>
+
+	</aside>
+
+	<footer class="foot">
+		
+		<h4>Citations</h4>
+
+			<ul class="cite">
+
+				<li>
+
+					<a href="https://en.wikipedia.org/wiki/Steve_Jobs" target="_blank">"Steve Jobs." Wikipedia. Wikimedia Foundation. Web. 8 Oct. 2015.</a>
+
+				</li>
+
+				<li>
+
+					<a href="https://en.wikipedia.org/wiki/Macintosh" target="_blank">"Macintosh." Wikipedia. Wikimedia Foundation. Web. 8 Oct. 2015.</a>
+
+				</li>
+
+				<li>
+
+					<a href="https://en.wikipedia.org/wiki/IPod" target="_blank">"iPod." Wikipedia. Wikimedia Foundation. Web. 8 Oct. 2015.</a>
+
+				</li>
+
+				<li>
+
+					<a href="https://en.wikipedia.org/wiki/IPhone" target="_blank">"iPhone." Wikipedia. Wikimedia Foundation. Web. 8 Oct. 2015.</a>
+
+				</li>
+
+				<li>
+
+					<a href="https://en.wikipedia.org/wiki/IPad" target="_blank">"iPad." Wikipedia. Wikimedia Foundation. Web. 8 Oct. 2015.</a>
+
+				</li>
+
+				<li>
+
+					<a href="https://en.wikipedia.org/wiki/IOS_version_history" target="_blank">"iOS Version History." Wikipedia. Wikimedia Foundation. Web. 8 Oct. 2015.</a>
+
+				</li>
+
+				<li>apple.svg obtained from the <a href="http://apple.com">Apple.com homepage</a>.</li>
+
+			</ul>
+
+	</footer>
+
+</div>
+
+</body>
+
+</html>

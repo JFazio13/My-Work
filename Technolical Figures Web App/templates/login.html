@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Login</title>
+
+	<link rel="stylesheet" href="/static/css/styles.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#wrong_pass").hide();
+			$("#no_user").hide();
+
+			{% if not session['logged_in'] %}
+				$(".logged_in").hide();
+			{% endif %}
+
+			{% if session['logged_in'] %}
+				$(".logged_out").hide();
+			{% endif %}
+
+			{% if wrong_pass == 1 %}
+				$("#wrong_pass").show();
+			{% endif %}
+
+			{% if no_user == 1 %}
+				$("#no_user").show();
+			{% endif %}
+		});
+	</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+	<header>
+
+		<a href="/">
+
+			<figure class="home_button">
+
+				<img src="/static/home.png">
+
+			</figure>
+
+		</a>
+
+		<div class="logged_out">
+
+			<a href="/signup">
+
+						<figure class="signup">
+
+							<img src="/static/signup.png" width="50%">
+
+						</figure>
+
+					</a>
+
+					<a href="/login">
+
+						<figure class="login">
+
+							<img src="/static/login.png" width="50%">
+
+						</figure>
+
+					</a>
+
+		</div>
+
+			<div class="logged_in">
+					
+				<a href="/logout">
+
+					<figure class="logout">
+
+						<img src="/static/logout.png" width = "45.3%">
+
+					</figure>
+
+				</a>
+
+				<a href="/my_account">
+
+					<figure class="myaccount">
+
+						<img src="/static/account.png" width = "18%">
+
+					</figure>
+
+				</a>
+
+				<p id="user">Hello, {{ user }}</p>
+
+			</div>
+
+			<figure class="apple">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+
+			<figure class="apple3">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+		
+			<div class="bar"></div>
+
+			<!-- This <div> is used soley for my persistent navigation bar -->
+
+			<nav class="menu">
+
+				<ul>
+			
+					<li><a href="/steve_jobs">Steve Jobs</a></li>
+
+					<li><a href="/reed_hastings">Reed Hastings</a></li>
+
+					<li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+					<li><a href="/jcr_licklider">JCR Licklider</a></li>
+					
+					<li><a href="/create_page">Create New Page</a></li>
+
+				</ul>
+
+			</nav>
+
+			<h1 class="sign">Login</h1>
+
+	</header>
+
+	<div class="signup_form">
+
+		<h3 id="login">Sign In</h3>
+
+		<div id="wrong_pass">Incorrect password. Please try again.</div>
+
+		<div id="no_user">Username not found. Click <a href="/signup">here</a> to register.</div>
+
+		<form method="post" action="/signedin">
+			
+			<div class="box2">
+
+				<label for="username">Username:</label>
+
+				<input type="text" name="name" id="username" required autofocus>	
+
+			</div>
+
+			<div class="box2">
+
+				<label for="password">Password:</label>
+
+				<input type="password" name="password" id="password" required>
+			
+			</div>
+
+		<input class="submit2" type="submit" value="Sign in">
+
+		</form>
+
+	</div>
+
+</div>
+
+</body>
+
+</html>

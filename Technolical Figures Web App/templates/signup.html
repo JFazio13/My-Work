@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Signup</title>
+
+	<link rel="stylesheet" href="/static/css/styles.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#verif_failed").hide();
+			$("#not_avail").hide();
+
+			{% if verif_failed == 1 %}
+				$("#verif_failed").show();
+			{% endif %}
+
+			{% if not_avail == 1 %}
+				$("#not_avail").show();
+			{% endif %}
+		});
+	</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+	<header>
+
+		<a href="/">
+
+			<figure class="home_button">
+
+				<img src="/static/home.png">
+
+			</figure>
+
+		</a>
+
+		{% block signup %}
+		{% if not session['logged_in'] %}
+		
+			<a href="/signup">
+
+						<figure class="signup">
+
+							<img src="/static/signup.png" width="50%">
+
+						</figure>
+
+					</a>
+
+					<a href="/login">
+
+						<figure class="login">
+
+							<img src="/static/login.png" width="50%">
+
+						</figure>
+
+					</a>
+
+		{% endif %}
+		{% endblock %}
+
+		{% block logout %}
+		{% if session['logged_in'] %}
+			<a href="/logout">
+
+				<figure class="logout">
+
+					<img src="/static/logout.png" width = "45.3%">
+
+				</figure>
+
+			</a>
+
+			<a href="/my_account">
+
+				<figure class="myaccount">
+
+					<img src="/static/account.png" width = "18%">
+
+				</figure>
+
+			</a>
+
+			<p id="user">Hello, {{ user }}</p>
+		{% endif %}
+		{% endblock %}
+
+			<figure class="apple">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+
+			<figure class="apple3">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+		
+			<div class="bar"></div>
+
+			<!-- This <div> is used soley for my persistent navigation bar -->
+
+			<nav class="menu">
+
+				<ul>
+			
+					<li><a href="/steve_jobs">Steve Jobs</a></li>
+
+					<li><a href="/reed_hastings">Reed Hastings</a></li>
+
+					<li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+					<li><a href="/jcr_licklider">JCR Licklider</a></li>
+					
+					<li><a href="/create_page">Create New Page</a></li>
+
+				</ul>
+
+			</nav>
+
+			<h1 class="sign">Signup</h1>
+
+	</header>
+
+	<div class="signup_form">
+
+		<h3 id="signup">Account Registration</h3>
+
+		<div id="verif_failed">Your passwords do not match. Please try again.</div>
+
+		<div id="not_avail">An account already exists for this username. Click <a href="/login">here</a> to sign in.</div>
+		
+		<form method="post" action="/create_account">
+				
+				<div class="box">
+
+					<label for="username">Username:</label>
+
+					<input type="text" name="name" id="username" required autofocus>	
+
+				</div>
+
+				<div class="box">
+
+					<label for="password">Password:</label>
+
+					<input type="password" name="password" id="password" required>
+				
+				</div>
+
+				<div class="box">
+
+					<label for="password">Verify password:</label>
+
+					<input type="password" name="vpass" id="vpass" required>
+				
+				</div>
+
+			<input class="submit" type="submit" value="Register">
+
+			</form>
+
+	</div>
+
+</div>
+
+</body>
+
+</html>

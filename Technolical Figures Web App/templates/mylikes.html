@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<title>My Likes</title>
+
+	<link rel="stylesheet" href="/static/css/styles.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+	<script>
+		$(document).ready(function(){ // Replaces all instances of underscored names with their proper alternatives
+		  	$("body *").contents().each(function() {
+		      if(this.nodeType==3){
+		        this.nodeValue = this.nodeValue.replace(/steve_jobs/g, 'Steve Jobs')
+		      }
+		  	});
+		  	$("body *").contents().each(function() {
+		      if(this.nodeType==3){
+		        this.nodeValue = this.nodeValue.replace(/reed_hastings/g, 'Reed Hastings')
+		      }
+		  	});
+		  	$("body *").contents().each(function() {
+		      if(this.nodeType==3){
+		        this.nodeValue = this.nodeValue.replace(/mark_zuckerberg/g, 'Mark Zuckerberg')
+		      }
+		  	});
+		  	$("body *").contents().each(function() {
+		      if(this.nodeType==3){
+		        this.nodeValue = this.nodeValue.replace(/jcr_licklider/g, 'JCR Licklider')
+		      }
+		  	});
+		});
+	</script>
+
+</head>
+<body>
+
+<div class="container">
+	
+	<header>
+
+		<a href="/">
+
+			<figure class="home_button">
+
+				<img src="/static/home.png">
+
+			</figure>
+
+		</a>
+
+		{% block signup %}
+		{% if not session['logged_in'] %}
+		
+			<a href="/signup">
+
+						<figure class="signup">
+
+							<img src="/static/signup.png" width="50%">
+
+						</figure>
+
+					</a>
+
+					<a href="/login">
+
+						<figure class="login">
+
+							<img src="/static/login.png" width="50%">
+
+						</figure>
+
+					</a>
+
+		{% endif %}
+		{% endblock %}
+
+		{% block logout %}
+		{% if session['logged_in'] %}
+			<a href="/logout">
+
+				<figure class="logout">
+
+					<img src="/static/logout.png" width = "45.3%">
+
+				</figure>
+
+			</a>
+
+			<a href="/my_account">
+
+				<figure class="myaccount">
+
+					<img src="/static/account.png" width = "18%">
+
+				</figure>
+
+			</a>
+
+			<p id="user">Hello, {{ user }}</p>
+
+		{% endif %}
+		{% endblock %}
+
+			<figure class="apple">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+
+			<figure class="apple3">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+		
+			<div class="bar"></div>
+
+			<!-- This <div> is used soley for my persistent navigation bar -->
+
+			<nav class="menu">
+
+				<ul>
+			
+					<li><a href="/steve_jobs">Steve Jobs</a></li>
+
+					<li><a href="/reed_hastings">Reed Hastings</a></li>
+
+					<li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+					<li><a href="/jcr_licklider">JCR Licklider</a></li>
+					
+					<li><a href="/create_page">Create New Page</a></li>
+
+				</ul>
+
+			</nav>
+
+			<h1 class="sign">My Likes</h1>
+
+	</header>
+
+	<div class="signup_form">
+
+		<h3 id="likes">Liked Pages</h3>
+			
+		<ul>
+			{% block likes %}
+			{% for i in like_list %}
+	  			<li><a class="liked" href="/{{ i }}">{{ i }}</a></li>
+			{% endfor %}
+			{% endblock %}
+
+		</ul>
+
+	</div>
+
+</body>
+</html>

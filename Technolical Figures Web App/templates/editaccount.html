@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Edit Account</title>
+
+	<link rel="stylesheet" href="/static/css/styles.css">
+
+</head>
+<body>
+
+<div class="container">
+
+	<header>
+
+		<a href="/">
+
+			<figure class="home_button">
+
+				<img src="/static/home.png">
+
+			</figure>
+
+		</a>
+
+		{% block signup %}
+		{% if not session['logged_in'] %}
+		
+			<a href="/signup">
+
+						<figure class="signup">
+
+							<img src="/static/signup.png" width="50%">
+
+						</figure>
+
+					</a>
+
+					<a href="/login">
+
+						<figure class="login">
+
+							<img src="/static/login.png" width="50%">
+
+						</figure>
+
+					</a>
+
+		{% endif %}
+		{% endblock %}
+
+		{% block logout %}
+		{% if session['logged_in'] %}
+			<a href="/logout">
+
+				<figure class="logout">
+
+					<img src="/static/logout.png" width = "45.3%">
+
+				</figure>
+
+			</a>
+
+			<a href="/my_account">
+
+				<figure class="myaccount">
+
+					<img src="/static/account.png" width = "18%">
+
+				</figure>
+
+			</a>
+
+			<p id="user">Hello, {{ user }}</p>
+		{% endif %}
+		{% endblock %}
+
+			<figure class="apple">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+
+			<figure class="apple3">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+		
+			<div class="bar"></div>
+
+			<!-- This <div> is used soley for my persistent navigation bar -->
+
+			<nav class="menu">
+
+				<ul>
+			
+					<li><a href="/steve_jobs">Steve Jobs</a></li>
+
+					<li><a href="/reed_hastings">Reed Hastings</a></li>
+
+					<li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+					<li><a href="/jcr_licklider">JCR Licklider</a></li>
+					
+					<li><a href="/create_page">Create New Page</a></li>
+
+				</ul>
+
+			</nav>
+
+			<h1 class="sign">Edit Account</h1>
+
+	</header>
+
+	<div class="signup_form">
+
+		<h3 id="info">Account Information</h3>
+		
+		<form method="post" action="/configure_account">
+			
+			<div class="box">
+
+				<label for="fullname">Full name:</label>
+
+				<input type="text" name="name" id="fullname" autofocus>	
+
+			</div>
+
+			<div class="box">
+
+				<label for="email">Email address:</label>
+
+				<input type="text" name="email" id="email">	
+
+			</div>
+
+			<div class="box">
+
+				<label for="age">Age:</label>
+
+				<input type="text" name="age" id="age">
+
+			</div>
+
+			<div class="box">
+				<p>Gender:</p>
+
+				<input type="radio" name="gender" id="male" value="Male">
+
+				<label for="male">Male</label>
+
+
+				<br>
+
+				<input type="radio" name="gender" id="female" value="Female">
+
+				<label for="female">Female</label>
+
+				<br>
+
+				<input type="radio" name="gender" id="no_change" value="" checked="checked">
+
+				<label for="female">No changes</label>
+			
+			</div>
+
+		<input class="submit" type="submit" value="Save changes">
+
+		</form>
+
+	</div>
+
+</body>
+</html>

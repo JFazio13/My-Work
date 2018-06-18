@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Project 3 – Tech Giants</title>
+
+	<link rel="stylesheet" href="/static/css/styles.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){ // All JS on this page is to power color-changing hearts
+			{% if not session['logged_in'] %}
+				$(".logged_in").hide();
+			{% endif %}
+
+			{% if session['logged_in'] %}
+				$(".logged_out").hide();
+			{% endif %}
+
+			{% if liked_steve == 1 %}
+				$("#like_steve").hide();
+				$("#liked_steve").show();
+			{% endif %}
+
+			{% if liked_steve == 0 %}
+				$("#liked_steve").hide();
+			{% endif %}
+
+		    $("#like_steve").click(function() {
+		    	$("#like_steve").hide();
+		        $("#liked_steve").show();
+		    });
+
+		    $("#liked_steve").click(function() {
+		        $("#like_steve").show();
+		        $("#liked_steve").hide();
+		    });
+
+		    {% if liked_reed == 1 %}
+				$("#like_reed").hide();
+				$("#liked_reed").show();
+			{% endif %}
+
+			{% if liked_reed == 0 %}
+				$("#liked_reed").hide();
+			{% endif %}
+
+		    $("#like_reed").click(function() {
+		    	$("#like_reed").hide();
+		        $("#liked_reed").show();
+		    });
+
+		    $("#liked_reed").click(function() {
+		        $("#like_reed").show();
+		        $("#liked_reed").hide();
+		    });
+
+		    {% if liked_mark == 1 %}
+				$("#like_mark").hide();
+				$("#liked_mark").show();
+			{% endif %}
+
+			{% if liked_mark == 0 %}
+				$("#liked_mark").hide();
+			{% endif %}
+
+		    $("#like_mark").click(function() {
+		    	$("#like_mark").hide();
+		        $("#liked_mark").show();
+		    });
+
+		    $("#liked_mark").click(function() {
+		        $("#like_mark").show();
+		        $("#liked_mark").hide();
+		    });
+
+		    {% if liked_jcr == 1 %}
+				$("#like_jcr").hide();
+				$("#liked_jcr").show();
+			{% endif %}
+
+			{% if liked_jcr == 0 %}
+				$("#liked_jcr").hide();
+			{% endif %}
+
+		    $("#like_jcr").click(function() {
+		    	$("#like_jcr").hide();
+		        $("#liked_jcr").show();
+		    });
+
+		    $("#liked_jcr").click(function() {
+		        $("#like_jcr").show();
+		        $("#liked_jcr").hide();
+		    });
+		});
+	</script>
+
+</head>
+
+<body>
+
+<div class="container">
+	
+	<header>
+
+		<a href="/">
+
+			<figure class="home_button">
+
+				<img src="/static/home.png">
+
+			</figure>
+
+		</a>
+
+		<div class="logged_out">
+
+			<a href="/signup">
+
+						<figure class="signup">
+
+							<img src="/static/signup.png" width="50%">
+
+						</figure>
+
+					</a>
+
+					<a href="/login">
+
+						<figure class="login">
+
+							<img src="/static/login.png" width="50%">
+
+						</figure>
+
+					</a>
+
+		</div>
+
+			<div class="logged_in">
+					
+				<a href="/logout">
+
+					<figure class="logout">
+
+						<img src="/static/logout.png" width = "45.3%">
+
+					</figure>
+
+				</a>
+
+				<a href="/my_account">
+
+					<figure class="myaccount">
+
+						<img src="/static/account.png" width = "18%">
+
+					</figure>
+
+				</a>
+
+				<p id="user">Hello, {{ user }}</p>
+
+			</div>
+
+			<figure class="apple">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+
+			<figure class="apple3">
+
+				<img src="/static/apple.svg" alt="Apple Logo">
+
+			</figure>
+		
+			<div class="bar"></div>
+
+			<!-- This <div> is used soley for my persistent navigation bar -->
+
+			<nav class="menu">
+
+				<ul>
+			
+					<li><a href="/steve_jobs">Steve Jobs</a></li>
+
+					<li><a href="/reed_hastings">Reed Hastings</a></li>
+
+					<li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+					<li><a href="/jcr_licklider">JCR Licklider</a></li>
+
+					<li><a href="/create_page">Create New Page</a></li>
+
+				</ul>
+
+			</nav>
+
+				{% if session['logged_in'] %}
+
+					<form method="post" action="/view_page" id="view_form">
+
+						<label for="user">View user page:</label>
+
+						<select name="user" class="page_select">
+
+					    		<option value="">Select user:</option>
+
+							{% for i in user_list %}
+								<option value="{{ i }}">{{ i }}</option>
+							{% endfor %}
+
+					  	</select>
+
+						<input id="share_button" class="view_page2" type="submit" value="Go">
+
+					</form>
+
+				{% endif %}
+
+			<h1 class="home">Tech Giants – A Culmination of Famous Technology Figures</h1>
+
+			<section class="logos">
+
+				<figure class="apple2">
+
+					<img src="/static/apple_logo.png" alt="apple">
+
+				</figure>
+
+				<figure class="netflix">
+
+					<img src="/static/netflix_logo.png" alt="netflix">
+
+				</figure>
+
+				<figure class="facebook">
+
+					<img src="/static/facebook_logo.png" alt="facebook">
+
+				</figure>
+
+				<figure class="licklider">
+
+					<img src="/static/licklider_logo.jpg" alt="licklider">
+
+				</figure>
+
+			</section>
+
+	</header>
+
+	<article>
+
+			<div id="background_apple"></div>
+
+			<section class="background3">
+
+			<h3>Steve Jobs</h3>
+
+				<figure class="fig">
+
+					<img src="/static/jobs.jpg" alt="steve">
+
+				</figure>
+
+				<p>Steven Paul Jobs (February 24, 1955 – October 5, 2011) was an American businessman. He was best known as the co-founder, chairman, and chief executive officer (CEO) of Apple Inc.; CEO and largest shareholder of Pixar Animation Studios; a member of The Walt Disney Company's board of directors following its acquisition of Pixar; and founder, chairman, and CEO of NeXT Inc. Jobs is widely recognized as a pioneer of the microcomputer revolution of the 1970s, along with Apple co-founder Steve Wozniak. Shortly after his death, Jobs's official biographer, Walter Isaacson, described him as the "creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing.”</p>
+
+				<a href="/steve_jobs">Read more on Apple founder, Steve Jobs</a>
+
+				{% block like %}
+				{% if session['logged_in'] %}
+			
+					<a href="/like_steve" class="like_index" id="like_steve"><img src="/static/like.png" width="7%"></a>
+					<a href="/like_steve" class="like_index" id="liked_steve"><img src="/static/liked.png" width="7%"></a>
+
+				{% endif %}
+				{% endblock %}
+
+			</section>
+
+			<section class="background3">
+
+			<h3>Reed Hastings</h3>
+
+				<figure class="fig">
+
+					<img src="/static/reed2.jpg" alt="reed">
+
+				</figure>
+
+				<p>In 1991, Reed founded Pure Software, which made tools for software developers. After a 1995 IPO, and several acquisitions, Pure was acquired by Rational Software in 1997. Reed is an active educational philanthropist and served on the California State Board of Education from 2000 to 2004. He is currently on the board of several educational organizations including CCSA, Dreambox Learning, KIPP, and Pahara, and the Hispanic Foundation of Silicon Valley. Reed is also a board member of Facebook, and was on the board of Microsoft from 2007 to 2012. Reed received a BA from Bowdoin College in 1983, and an MSCS in Artificial Intelligence from Stanford University in 1988. Between Bowdoin and Stanford, Reed served in the Peace Corps as a high school math teacher in Swaziland. Reed is married with two children.</p>
+
+				<a href="/reed_hastings">Read more on Netflix CEO, Reed Hastings</a>
+
+
+				{% block like2 %}
+				{% if session['logged_in'] %}
+			
+					<a href="/like_reed" class="like_index" id="like_reed"><img src="/static/like.png" width="7%"></a>
+					<a href="/like_reed" class="like_index" id="liked_reed"><img src="/static/liked.png" width="7%"></a>
+
+				{% endif %}
+				{% endblock %}
+
+			</section>
+
+			<section class="background4">
+
+			<h3>Mark Zuckerberg</h3>
+
+				<figure class="fig">
+
+					<img src="/static/mark.jpg" alt="mark">
+
+				</figure>
+
+				<p>Mark Elliot Zuckerberg (born May 14, 1984) is an American computer programmer and Internet entrepreneur. He is best known as one of five co-founders of the social networking website Facebook. Zuckerberg is the chairman and chief executive of Facebook, Inc. His personal wealth, as of July 2015, is estimated to be $38.6 billion. Zuckerberg receives a one-dollar salary as CEO of Facebook. Zuckerberg was born in 1984 in White Plains, New York. He is the son of dentist Edward Zuckerberg and psychiatrist Karen Kempner. He and his three sisters, Randi, Donna, and Arielle, were brought up in Dobbs Ferry, New York, a small Westchester County village about 10 miles north of New York City.</p>
+
+				<a href="/mark_zuckerberg">Read more on Facebook founder, Mark Zuckerberg</a>
+
+				{% block like3 %}
+				{% if session['logged_in'] %}
+			
+					<a href="/like_mark" class="like_index" id="like_mark"><img src="/static/like.png" width="7%"></a>
+					<a href="/like_mark" class="like_index" id="liked_mark"><img src="/static/liked.png" width="7%"></a>
+
+				{% endif %}
+				{% endblock %}
+
+			</section>
+
+			<section class="ceo4">
+
+			<h3>JCR Licklider</h3>
+
+				<figure class="fig">
+
+					<img src="/static/lick.jpg" alt="jcr">
+
+				</figure>
+
+				<p>Joseph Carl Robnett Licklader was born 03/11/1915 in St Louis, Missouri. He died at 75 years of age. He is most well known for being an internet pioneer with an early vision of a worldwide computer network long before it was built and foreseeing modern-style interactive computing. He received a PHD in psychoacoustics at the University of Rochester. Licklider was called "Lick" by everyone who knew him. He was well-liked and had a reputation for being humble almost to a fault, often letting others take credit for his ideas as long as they were accomplished. His modesty and good manners were probably part of his mid-western upbringing. Lick was born in St. Louis in 1915 and attended Washington State University.</p>
+
+				<a href="/jcr_licklider">Read more on JCR Licklider</a>
+
+				{% block like4 %}
+				{% if session['logged_in'] %}
+			
+					<a href="/like_jcr" class="like_index" id="like_jcr"><img src="/static/like.png" width="7%"></a>
+					<a href="/like_jcr" class="like_index" id="liked_jcr"><img src="/static/liked.png" width="7%"></a>
+
+				{% endif %}
+				{% endblock %}
+
+			</section>
+
+	</article>
+
+	<footer>
+
+	<h4 class="disc">Disclaimers</h4>
+
+		<ul>
+			
+		<li>Credit goes to myself (James Fazio) for the content of <a href="/steve_jobs">Steve Jobs</a>, Jayde Homer for the content of <a href="/reed_hastings">Reed Hastings</a>, Adam Aboudi for the content of <a href="mark_zuckerberg">Mark Zuckerberg</a>, and Matt Bramall for the content of <a href="jcr_licklider">JCR Licklider</a>.</li>
+
+		<li class="disclaimer">All images sourced from the Internet; I do not claim original rights to any of them.</li>
+
+		</ul>
+
+	</footer>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+		<meta charset="utf-8">
+
+		<title>JCR Licklider</title>
+
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){ // Same as stevejobs.html, minus commenting framework
+
+    {% block liked %}
+
+    {% if liked == 1 %}
+      $(".like_main").hide();
+      $(".liked_main").show();
+    {% endif %}
+
+    {% if liked == 0 %}
+      $(".liked_main").hide();
+    {% endif %}
+
+    {% endblock %}
+
+        $("#new_like").hide();
+
+        $(".like_main").click(function() {
+          $(".like_main").hide();
+            $(".liked_main").show();
+            $("#old_like").hide();
+            $("#new_like").show();
+        });
+
+        $(".liked_main").click(function() {
+            $(".like_main").show();
+            $(".liked_main").hide();
+            $("#new_like").hide();
+            $("#old_like").show();
+        });
+
+        function deselect(e) {
+          $('.pop').slideFadeToggle(function() {
+            e.removeClass('selected');
+          });    
+      }
+
+      $(function() {
+        $('#share').on('click', function() {
+          $("#success").hide();
+          if($(this).hasClass('selected')) {
+            deselect($(this));               
+          } else {
+            $(this).addClass('selected');
+            $('.pop').slideFadeToggle();
+          }
+          return false;
+        });
+
+        $("#share_button").click(function() {
+              $("#success").slideFadeToggle();
+          });
+
+        $('.close').on('click', function() {
+          deselect($('#share'));
+          return false;
+        });
+      });
+
+      $.fn.slideFadeToggle = function(easing, callback) {
+        return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+      };
+    });
+  </script>
+
+  <script>
+    $(document).ready(function(){
+      function deselect(e) {
+          $('.pop2').slideFadeToggle(function() {
+            e.removeClass('selected');
+          });    
+      }
+
+      $(function() {
+        $('#likes').on('click', function() {
+          if($(this).hasClass('selected')) {
+            deselect($(this));               
+          } else {
+            $(this).addClass('selected');
+            $('.pop2').slideFadeToggle();
+          }
+          return false;
+        });
+
+        $('.close').on('click', function() {
+          deselect($('#likes'));
+          return false;
+        });
+      });
+
+      $.fn.slideFadeToggle = function(easing, callback) {
+        return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+      };
+    });
+  </script>
+
+  <script>
+    $(document).ready(function(){ // Powers JS pop up window for test commenting framework
+      function deselect(e) {
+          $('.pop3').slideFadeToggle(function() {
+            e.removeClass('selected');
+          });    
+      }
+
+      $(function() {
+        $('#comments').on('click', function() {
+          if($(this).hasClass('selected')) {
+            deselect($(this));               
+          } else {
+            $(this).addClass('selected');
+            $('.pop3').slideFadeToggle();
+          }
+          return false;
+        });
+
+        $('.close').on('click', function() {
+          deselect($('#comments'));
+          return false;
+        });
+      });
+
+      $.fn.slideFadeToggle = function(easing, callback) {
+        return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+      };
+    });
+  </script>
+
+  <script type="text/javascript">
+    function comment() {
+        var input = document.getElementById("new_comment").value;
+      var para = document.createElement("div");
+      var para2 = document.createElement("p");
+      var node = document.createTextNode(input);
+      var node2 = document.createTextNode("~ By {{ user }}");
+      para.appendChild(node);
+      para2.appendChild(node2);
+      var element = document.getElementById("comment_pane");
+      element.appendChild(para);
+      element.appendChild(para2);
+    }
+  </script>
+
+	</head>
+ 
+	<body>
+
+  <div class="container">
+
+		<header>
+
+    <div class="jcr"></div>
+
+    <a href="/">
+
+      <figure class="home_button">
+
+        <img src="/static/home.png">
+
+      </figure>
+
+    </a>
+
+    {% block signup %}
+    {% if not session['logged_in'] %}
+    
+      <a href="/signup">
+
+            <figure class="signup">
+
+              <img src="/static/signup.png" width="50%">
+
+            </figure>
+
+          </a>
+
+          <a href="/login">
+
+            <figure class="login">
+
+              <img src="/static/login.png" width="50%">
+
+            </figure>
+
+          </a>
+
+    {% endif %}
+    {% endblock %}
+
+    {% block logout %}
+    {% if session['logged_in'] %}
+      <a href="/logout">
+
+        <figure class="logout">
+
+          <img src="/static/logout.png" width = "45.3%">
+
+        </figure>
+
+      </a>
+
+      <a href="/my_account">
+
+        <figure class="myaccount">
+
+          <img src="/static/account.png" width = "18%">
+
+        </figure>
+
+      </a>
+
+      <p id="user">Hello, {{ user }}</p>
+    {% endif %}
+    {% endblock %}
+
+      <figure class="apple">
+
+        <img src="/static/apple.svg" alt="Apple Logo">
+
+      </figure>
+
+      <figure class="apple3">
+
+        <img src="/static/apple.svg" alt="Apple Logo">
+
+      </figure>
+    
+      <div class="bar"></div>
+
+      <!-- This <div> is used soley for my persistent navigation bar -->
+
+      <nav class="menu">
+
+        <ul>
+      
+          <li><a href="/steve_jobs">Steve Jobs</a></li>
+
+          <li><a href="/reed_hastings">Reed Hastings</a></li>
+
+          <li id="products"><a id="products2" href="/mark_zuckerberg">Mark Zuckerberg</a></li>
+
+          <li><a href="/jcr_licklider">JCR Licklider</a></li>
+          
+          <li><a href="/create_page">Create New Page</a></li>
+
+        </ul>
+
+      </nav>
+
+			<h1 class="lid">JCR Licklider</h1>
+
+      <figure>
+
+      <img class="lick" src="/static/licklider.jpg" alt= "JCR LickLider">
+
+      <figcaption>A profile picture of JCR Licklider</figcaption>
+
+      </figure> 
+
+      <div class="head">
+
+			<p>Joseph Carl Robnett Licklider was born 03/11/1915 in St Louis, Missouri. He died at 75 years of age. He is most well known for being an internet pioneer with an early vision of a worldwide computer network long before it was built and foreseeing modern-style interactive computing. He received a PHD in psychoacoustics at the University of Rochester.</p>
+
+      </div>
+
+    {% block like %}
+  {% if session['logged_in'] %}
+
+    <div class="messagepop pop">
+
+      <h3 class="share">Share with another user</h3>
+
+      <form method="post" id="share_with" action="/share_jcr">
+
+        <select name="user">
+          <option value="">Select user:</option>
+        {% for i in user_list %}
+          <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+
+        </select>
+
+      <input id="share_button" class="share_with" type="submit" value="Share">
+
+      <div id="success">Shared successfully</div>
+
+      </form>
+
+    </div>
+
+    <div class="messagepop pop2">
+
+      <h3 class="share">Users who like JCR Licklider</h3>
+
+      <p class="users_liked" id="old_like">{{jcr_likes}}</p>
+
+      {% set new_like = jcr_likes + ", " + user %}
+
+      <p class="users_liked" id="new_like">{{ new_like }}</p>
+
+    </div>
+
+    <div class="messagepop2 pop3">
+
+      <h3 class="comment">Comments</h3>
+        {% for i in comment_list %}
+            <div class="comments">{{ i }}</div>
+            <div class="comments">~ By {{ comment_by_list[loop.index - 1] }}</div>
+            <div id="line">__________________________________________________________________________________________________________</div>
+        {% endfor %}
+
+      <div id="comment_pane"></div>
+
+      <form method="post" class="share_with" action="/comment_jcr">
+
+        <textarea rows="4" cols="50" name="new_comment" id="new_comment" autofocus> </textarea>
+
+        <input id="share_button" class="share_with" type="submit" value="Post comment" onclick="comment();">
+
+      </form>
+
+    </div>
+
+    <a href="/share" id="share" class="share_main"><img src="/static/share.png" width="2.7%"></a>
+
+    <a href="/likes" id="likes" class="likes_main"><img src="/static/likes.png" width="3.5%"></a>
+      
+    <a href="/like_jcr" class="like_main"><img src="/static/like.png" width="3.5%"></a>
+
+    <a href="/like_jcr" class="liked_main"><img src="/static/liked.png" width="3.5%"></a>
+
+    <a href="/comments" id="comments" class="share_main"><img src="/static/comment.png" width="2.5%"></a>
+
+  {% endif %}
+  {% endblock %}
+
+		</header>
+
+		<article>
+
+    <div id="background_apple"></div>
+
+      <section class="background2">
+
+			<h2 class="found">Biography</h2>
+
+      <p>Licklider was called "Lick" by everyone who knew him. He was well-liked and had a reputation for being humble almost to a fault, often letting others take credit for his ideas as long as they were accomplished. His modesty and good manners were probably part of his mid-western upbringing. Lick was born in St. Louis in 1915.He attended Washington State University in St. Louis where he received three bachelor's degrees in physics, math, and psychology. He did his doctoral work in psychoacoustics (the psychophysiology of the auditory system). In 1942, he went to work at Harvard's Psychoacoustics Laboratory where he did work for the Air Force to find solutions for the communication problems faced by crewman in noisy bomber aircraft. He passed away on June 26th 1990.</p>
+			
+			<h3 class="contro">Psychoacoustics</h3>
+
+			<p>
+			The lick (as he was also known) was well respected in the field of psychoacoustics for his 1951 paper entitled “Duplex Theory of Pitch Perception.” Psychoacoustics is the scientific study of sound perception. More specifically, it is the branch of science studying the psychological and physiological responses associated with sound (including speech and music). It can be further categorized as a branch of psychophysics.
+			</p>
+
+      </section>
+
+      <section class="ceo2">
+
+			<h2 class="found">Information Technology</h2>
+
+			<p>
+			During his time at MIT as an associate professor he continued his psychoacoustics research and published an article titled "A duplex theory of pitch perception". Licklider fulfilled his original hiring objective, and established a psychology department with the intention to educate engineering students the importance of designing with the user in mind. In today's parlance this has evolved into its own field of study called human-computer interaction. Licklider participated in two summer studies at MIT. The second, Project Charles, led to the creation of the Lincoln Laboratory that produced the Semi-Automatic Ground Environment (SAGE) system design. The SAGE program was "established in 1954 by the US Air Force to develop a continental air defense system to protect against a nuclear bomber attack from the Soviet Union." (Living Internet, 1996-2010) The experience from working on this project, with engineers, psychologists, radar machines and computers had a lasting effect on Licklider.
+			</p>
+
+			<h3 class="contro">ARPA</h3>
+
+			<p>
+			In 1963, while serving as director at the U.S. Department of Defense Advanced Research Projects Agency (ARPA), it was Dr. Licklider’s persuasive and detailed description of the challebges to establishing a time-sharing network of computers that ultimately led to the creation of the ARPAnet. His 1968 paper called “the Computer as a Communication Device” illustrated his vision of network applications and predicted the use of computer networks for communications. Until then, computers had generally been thought of as mathematical devices for speeding up computations. The ARPAnet was eventually eclipsed by the Internet, and in the same year that the ARPAnet formally shut down.
+			</p>
+
+      </section>
+
+      <section class="iphone2">
+
+      <h2 class="found"> Licklider's vision </h2>
+      
+      <figure class="fig">
+
+        <img src="/static/internet.jpg" alt= "internet thing"> 
+
+          <figcaption>Licklider's vision.</figcaption>
+
+      </figure>
+
+        <p>It seems reasonable to envision, for a time 10 or 15 years hence, a 'thinking center' that will incorporate the functions of present-day libraries together with anticipated advances in information storage and retrieval. The picture readily enlarges itself into a network of such centers, connected to one another by wide-band communication lines and to individual users by leased-wire services. In such a system, the speed of the computers would be balanced, and the cost of the gigantic memories and the sophisticated programs would be divided by the number of users. </p>
+
+        <div> ~  J.C.R. Licklider, Man-Computer Symbiosis, 1960.</div>
+
+        <p>The fig tree is pollinated only by the insect Blastophaga grossorun. The larva of the insect lives in the ovary of the fig tree, and there it gets its food. The tree and the insect are thus heavily interdependent: the tree cannot reproduce wit bout the insect; the insect cannot eat wit bout the tree; together, they constitute not only a viable but a productive and thriving partnership. This cooperative "living together in intimate association, or even close union, of two dissimilar organisms" is called symbiosis.</p>
+
+        <p>"Man-computer symbiosis is a subclass of man-machine systems. There are many man-machine systems. At present, however, there are no man-computer symbioses. The purposes of this paper are to present the concept and, hopefully, to foster the development of man-computer symbiosis by analyzing some problems of interaction between men and computing machines, calling attention to applicable principles of man-machine engineering, and pointing out a few questions to which research answers are needed. The hope is that, in not too many years, human brains and computing machines will be coupled together very tightly, and that the resulting partnership will think as no human brain has ever thought and process data in a way not approached by the information-handling machines we know today.</p>
+
+      </section>
+
+      <section class="ipad2">
+
+      <h2 class="found">Timeline</h2>
+
+      <table border= "1" style="width:100%">
+        <tr>
+        <th>Date</th>
+        <th>Event</th> 
+
+        </tr>
+        <tr>
+        <td>1915</td>
+        <td>Licklider was born in St. Louis, Missouri, USA., on March 11, 1915.</td> 
+        
+      </tr>
+      <tr>
+        <td>1937</td>
+         <td>Graduated from Washington University in St. Louis with three B.S. degrees, physics, mathematics and psychology.</td> 
+         
+      </tr>
+      <tr>
+        <td>1938</td>
+         <td>Graduated from Washington University in St. Louis with a M.A. in psychology.</td> 
+         
+      </tr>
+      <tr>
+        <td>1942</td>
+         <td>Graduated from the University of Rochester, in New York state with a PhD in psychoacoustics.</td> 
+         
+      </tr>
+      <tr>
+        <td>1942</td>
+         <td>Research Fellow in the Psycho-Acoustics Laboratory, Harvard University, Cambridge, MA.</td> 
+         
+      </tr>
+      <tr>
+        <td>1950</td>
+         <td>Associate Professor at Harvard.</td> 
+         
+      </tr>
+      <tr>
+        <td>1951</td>
+         <td>Lincoln Laboratory at MIT established. 
+Published Duplex Theory of Pitch Perception.
+</td> 
+         
+      </tr>
+      <tr>
+        <td>1957</td>
+         <td>Received the Franklin V. Taylor Award from the Society of Engineering Psychologists. 
+Became a Vice President at Bolt Beranek and Newman, Inc.
+</td> 
+         
+      </tr>
+      <tr>
+        <td>1958</td>
+         <td>Elected President of the Acoustical Society of America.</td> 
+         
+      </tr>
+      <tr>
+        <td>1959</td>
+         <td>Published Libraries of the Future.</td> 
+         
+      </tr>
+      <tr>
+        <td>1960</td>
+         <td>Wrote Man-Computer Symbiosis paper.</td> 
+         
+      </tr>
+      <tr>
+        <td>1962</td>
+         <td>Appointed head of the Information Processing Techniques Office (IPTO) at ARPA, the United States Department of Defense Advanced Research Projects Agency.</td> 
+         
+      </tr>
+      <tr>
+        <td>1963</td>
+         <td>Named Director of Behavioral Sciences Command and Control Research at ARPA.</td> 
+         
+      </tr>
+      <tr>
+        <td>1968</td>
+         <td>Published The Computer as a Communication Device in Science and Technology.</td>          
+         
+      </tr>
+      <tr>
+        <td>1990</td>
+         <td>Licklider died on June 26, 1990 due to complications from an asthma attack.
+      Received the Commonwealth Award for Distinguished Service.
+    </td>          
+         
+      </tr>
+
+      </table>  
+    
+      </section>
+
+		</article>
+
+    <div id="background_apple4"></div>
+
+		<aside class="mac2">
+
+			<h2 class="found">Publications</h2>
+
+			<ul>
+			<li> An Electrical Investigation of Frequency-Localization in the Auditory Cortex of the Cat, Ph.D. Thesis University of Rochester, 1942.</li>
+			<li>Libraries of the future, Cambridge, Mass., M.I.T. Press, 1965.</li>
+			<li>Man-Computer Symbiosis, Transactions on Human Factors in Electronics, volume HFE-1, pages 4-11, March 1960.</li>
+			<li>Man-Computer Partnership, International Science and Technology, May 1965.</li>
+			<li>The Computer as a Communication Device, Science and Technology, April 1968.</li>
+
+			</ul>
+
+		</aside>
+		<footer>
+			<h2 class="help">Citations</h2>
+			<p>
+			<a href="https://en.wikipedia.org/wiki/J._C._R._Licklider"> https://en.wikipedia.org/wiki/J._C._R._Licklider </a>
+		</p>
+		<p>
+			<a href="http://internethalloffame.org/inductees/jcr-licklider"> http://internethalloffame.org/inductees/jcr-licklider </a>
+		</p>
+		<p>
+			<a href="http://www.cs.rit.edu/~rpretc/imm/project1/biography.html"> http://www.cs.rit.edu/~rpretc/imm/project1/biography.html </a>
+		</p>
+		<p>
+			
+			<a href="https://www.ibiblio.org/pioneers/licklider.html"> https://www.ibiblio.org/pioneers/licklider.html </a>
+		</p>
+
+		</footer>
+    </div>
+	</body>
+</html>

@@ -1,0 +1,959 @@
+body { 
+	color: #333333;
+	background-color: #f0f8ff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.stevejobs {
+	position: absolute;
+	width: 75%;
+	top: 7%;
+	padding-bottom: 28%;
+	left: 22%;
+	background-image: url(/static/apple.jpg);
+}
+
+.stevejobs2 {
+	position: absolute;
+	width: 75%;
+	top: 17%;
+	padding-bottom: 13%;
+	left: 22%;
+	background-image: url(/static/apple.jpg);
+}
+
+.reedhastings {
+	position: absolute;
+	width: 70%;
+	top: 7%;
+	padding-bottom: 28%;
+	left: 28.9%;
+	background-image: url(/static/netflix.png);
+	background-position: center;
+	z-index: 1;
+}
+
+.zuckerberg {
+	position: absolute;
+	width: 70%;
+	top: 15%;
+	padding-bottom: 23%;
+	left: 25.5%;
+	background-image: url(/static/facebook.png);
+	z-index: 1;
+}
+
+.jcr {
+	position: absolute;
+	width: 61%;
+	top: 5%;
+	padding-bottom: 28%;
+	left: 29%;
+	background-image: url(/static/jcr.png);
+	z-index: 1;
+}
+
+.container {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 100%;
+	margin-left: .5%;
+}
+
+.mac {
+	width: 50%;
+    padding: 0 .7% .7% .7%;
+    margin-right: .7%;
+    margin-bottom: 0;
+    vertical-align: top;
+    background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.mac3 {
+	width: 50%;
+    padding: 0 .7% .7% .7%;
+    margin-right: .7%;
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: top;
+    background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.mac2 {
+	width: 50%;
+    padding: .7% .7% .7% .7%;
+    margin-right: .7%;
+    margin-left: 23%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    vertical-align: top;
+    background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.macpic {
+	float: right;
+}
+
+.ipod {
+	width: 45%;
+	padding: 0 .7% .7% .7%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.ipod2 {
+	width: 45%;
+	padding: 0 .7% .7% .7%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.mac, .ipod {
+	display: inline-block;
+	margin-bottom: .8%;
+}
+
+.ipodpic { float: left;}
+
+.iphone {
+	width: 50%;
+	padding: 0 .7% 0 .7%;
+	margin-bottom: .7%;
+	margin-right: .7%;
+	vertical-align: top;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.iphone2 {
+	width: 50%;
+	padding: 0 .7% 0 .7%;
+	margin-bottom: .7%;
+	margin-right: .7%;
+	margin-top: 1%;
+	vertical-align: top;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.iphonepic { float: right;}
+
+.ipad {
+	width: 45%;
+	padding: 0 .7% .7% .7%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.ipad2 {
+	width: 45%;
+	padding: 0 .7% .7% .7%;
+	margin-top: 1%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.ipadpic { float: left;}
+
+.iphone, .ipad {
+	display: inline-block;
+	margin-bottom: 2.9%;
+}
+
+.iphone2, .ipad2 { display: inline-block; }
+
+.list {
+	width: 35%;
+	padding: .7%;
+	margin-right: .7%;
+	vertical-align: top;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.table {
+	width: 60%;
+	padding: .7%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+	margin-right: .7%;
+}
+
+.tab {
+	border: 2px solid white;
+	padding: .7%;
+}
+
+.list, .table { display: inline-block; }
+
+.steve {
+	padding-left: 17.1%;
+	padding-bottom: 1.9%;
+}
+
+.menu {
+	margin-top: 0;
+	margin-bottom: 0;
+	position: fixed;
+	top: -2.2%;
+	right: 26.3%;
+	z-index: 1003;
+}
+
+.menu ul {
+	padding-left: 0;
+	list-style-type: none;
+	z-index: 1002;
+}
+
+.menu li, form { display: inline-block; }
+
+.menu a {
+	display: block;
+	padding: 5px 5px 6px 5px;
+	width: 140px;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	z-index: 1001;
+}
+
+.menu a:hover {
+	color: #afafaf;
+	border: 0;
+}
+
+.liked {
+	color: white;
+}
+
+.liked a:hover {
+	color: #afafaf;
+}
+
+#submenu {
+	display: none;
+	position: absolute;
+	z-index: 999;
+}
+
+#products { position: relative; }
+
+#products:hover #submenu { display: block; }
+
+#mac, #ipod, #iphone, #ipad { background-color: rgba(0,0,0,0.725); }
+
+.bar {
+	background-color: rgba(60,64,72,.95);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	padding-bottom: 2.1%;
+	left: 0;
+	z-index: 1000;
+}
+
+#products3 { padding-bottom: .48%;}
+
+article {margin-top: 2.5%;}
+
+.apple {
+	position: fixed;
+	top: -3.1%;
+	left: 17.8%;
+	z-index: 1004;
+}
+
+.apple3 {
+	position: fixed;
+	top: -3.1%;
+	left: 25.79%;
+	z-index: 1004;
+}
+
+.background {
+	width: 40%;
+	padding: 0 .7% .7% .7%;
+	margin-right: .7%;
+	vertical-align: top;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.background2 {
+	width: 50%;
+	padding: 0 .7% .7% .7%;
+	margin-right: .7%;
+	margin-bottom: 2%;
+	vertical-align: top;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.background3 {
+	width: 47%;
+	padding: 0 .7% .7% .7%;
+	margin-right: .7%;
+	margin-bottom: 2%;
+	vertical-align: top;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.background4 {
+	width: 47%;
+	padding: 0 .7% .7% .7%;
+	margin-right: .7%;
+	margin-bottom: 2%;
+	vertical-align: top;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.ceo {
+	width: 55%;
+	padding: 0 .7% .7% .7%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.ceo2 {
+	width: 45%;
+	padding: 0 .7% .7% .7%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.ceo3 {
+	width: 47%;
+	padding: 0 .7% .7% .7%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.ceo4 {
+	width: 47%;
+	padding: 0 .7% .7% .7%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.background, .ceo { display: inline-block; }
+
+.background2, .ceo2 { display: inline-block; }
+
+.background3, .ceo3 {
+	display: inline-block;
+	margin-left: 5.5px;
+}
+
+.background4, .ceo4 {
+	display: inline-block;
+	margin-left: 5.5px;
+}
+
+.products_jobs {
+	width: 45%;
+	padding: 0 .7% 0 9%;
+	border-radius: 10px;
+	border: 2px solid black;
+	margin-left: 23%;
+	margin-top: 5%;
+	margin-bottom: 2%px;
+}
+
+#macintosh_ipod { margin-bottom: 4%;}
+
+h1 {
+	color: #333333;
+	text-decoration: underline;
+	font-family: Signpainter, Arial, sans-serif;
+	font-size: 300%;
+	font-weight: bold;
+	margin-top: 1%;
+	margin-bottom: 0.1%;
+	margin-left: 7.3%;
+}
+
+h2 {
+	text-align: center;
+	font-weight: normal;
+	font-style: italic;
+}
+
+h3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+	font-weight: normal;
+	text-align: center;
+	margin-top: 1.45%;
+}
+
+.back2 { margin-top: 2% }
+
+.cite li { padding-bottom: 1.5%; }
+
+a {
+	color: #0099cc;
+text-decoration: none;
+}
+
+a:hover { color: #afafaf; }
+
+.jobs {
+	width: 71%;
+	vertical-align: top;
+	margin: 0 auto;
+}
+
+.tech {
+	width: 28%;
+}
+
+.jobs, .tech {
+	display: inline-block;
+}
+
+.legend {
+	color: #333333;
+	font-family: Signpainter, Arial, sans-serif;
+	font-size: 300%;
+	padding-right: 2%;
+	margin: 13px 0 0 0;
+}
+
+.sjpic {
+	padding-left: 20%;
+	margin-bottom: 2.2%;
+}
+
+.sjcap {
+	padding-left: 3.3%;
+	margin-top: .75%;
+}
+
+#macintosh_ipod { padding-bottom: 0 }
+
+#iphone_ipad {
+	padding: .18%;
+	margin-right: 3.5%;
+	margin-left: 2.3%;
+	margin-bottom: 2.65%;
+	margin-top: 2.2%;
+	background-color: rgba(60,64,72,.95);
+}
+
+#background_apple {
+	padding: .18%;
+	margin-right: 3.5%;
+	margin-left: 2.3%;
+	margin-bottom: 2.7%;
+	margin-top: 2.2%;
+	background-color: rgba(60,64,72,.95);
+}
+
+#background_apple2 {
+	padding: .18%;
+	margin-right: 3.5%;
+	margin-left: 2.3%;
+	margin-bottom: 2.7%;
+	margin-top: 1.6%;
+	background-color: rgba(60,64,72,.95);
+}
+
+#background_apple3 {
+	padding: .18%;
+	margin-right: 3.5%;
+	margin-left: 2.3%;
+	margin-bottom: 2.7%;
+	margin-top: 0.2%;
+	background-color: rgba(60,64,72,.95);
+}
+
+#background_apple4 {
+	padding: .18%;
+	margin-right: 3.5%;
+	margin-left: 2.3%;
+	margin-bottom: 2.7%;
+	margin-top: 2%;
+	background-color: rgba(60,64,72,.95);
+}
+
+
+.death {
+	width: 50%;
+	margin-top: 2.2%;
+	margin-left: 25%;
+	padding: .35% 1.05% .35% 1.05%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+}
+
+.foot {
+	max-width: 50%;
+}
+
+.jobspic { margin-right: 20%; }
+
+#death { padding-bottom: 1.0%;}
+
+.table_head, .list_head, h3 {
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: white;
+	color: #333333;
+}
+
+.iphone, .iphone2, .ipad, .ipad2, .mac, .mac2, .mac3, .ipod, .ipod2, .background, .background2, .background3, .background4, .ceo, .ceo2, .ceo3, .ceo4, .table, .list, .death {
+	border-radius: 10px;
+}
+
+header {
+	border-radius: 10px;
+	border: 2px solid black;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	width: 98.8%;
+}
+
+.found {
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: white;
+	color: #333333;
+	margin-top: 11px;
+	font-size: 13pt;
+	font-style: normal;
+}
+
+.contro {
+	color: white;
+	background-color: #333333;
+}
+
+.head { padding: 10px 10px 0 10px; }
+
+.help {
+	text-align: left;
+	font-size: 12pt;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.reed { margin-left: 16px;}
+
+.reed2 { margin-left: 37px;}
+
+.cap { 
+	margin-left: -10px;
+	margin-top: 10px;
+}
+
+.mac3, .ipod2 { display: inline-block; }
+
+.mark {
+	margin-left: 20px;
+	margin-bottom: 5px;
+}
+ .mark2 { margin-left: 45px; }
+
+.mark3 { margin-left: 21.5px;}
+
+.apple2 {
+	width: 12%;
+	padding: 0 .7% .7% .7%;
+    margin-right: .7%;
+    margin-bottom: 0;
+    vertical-align: top;
+}
+
+.netflix {
+	width: 16%;
+	padding: 6% .7% .7% .7%;
+    margin-right: .7%;
+    margin-bottom: 0;
+    vertical-align: top;
+}
+
+.facebook {
+	width: 15%;
+	padding: 2% .5% .7% .7%;
+    margin-right: .7%;
+    margin-bottom: 0;
+    margin-left: 55px;
+    vertical-align: top;
+}
+
+.licklider {
+	width: 15%;
+	padding: 1.9% .7% .7% .7%;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 11px;
+    vertical-align: top;
+}
+
+.apple2, .netflix, .facebook, .licklider { display: inline-block; }
+
+.home {
+	text-align: center;
+	margin-left: 0;
+}
+
+.logos { margin-left: 227px; }
+
+.fig { float: right;}
+
+.page_net { background-color: red; }
+
+.page_jobs { background-color: silver; }
+
+.page_face { background-color: navy; }
+
+.page_jcr { background-color: teal; }
+
+.lick {
+	margin-left: 32px;
+	margin-bottom: 10px;
+}
+
+.lid { margin-left: 67.5px; }
+
+.disclaimer {
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.disc { margin-bottom: 10px;}
+
+.home_button {
+	position: fixed;
+	top: -1.98%;
+	display: inline;
+	border: 1px solid white;
+	border-radius: 20px;
+	padding: .2% 2.1% .05% 2.0%;
+	z-index: 10000;
+}
+
+.signup {
+	position: fixed;
+	top: -1.98%;
+	display: inline;
+	margin: 1.19% 0 0 84.8%;
+	z-index: 10001;
+	width: 10%;
+}
+
+.login {
+	position: fixed;
+	top: -1.98%;
+	display: inline;
+	margin: 1.01% 0 0 90%;
+	z-index: 10001;
+	width: 10%;
+}
+
+.logout {
+	position: fixed;
+	top: -1.98%;
+	display: inline;
+	margin: .88% 0 0 90%;
+	z-index: 10001;
+	width: 10%;
+}
+
+.sign {
+margin-left: 46%;
+margin-bottom: 1.5%;
+}
+
+#user {
+	position: fixed;
+	top: -1.98%;
+	display: inline;
+	margin: 1.35% 0 0 81%;
+	z-index: 10001;
+	color: white;
+}
+
+.myaccount {
+	position: fixed;
+	top: -1.98%;
+	display: inline;
+	margin: 1.15% 0 0 78.7%;
+	z-index: 10001;
+	width: 10%;
+	color: white;
+}
+
+.like_main {
+	margin-left: 96.5%;
+	margin-right: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	margin-bottom: 0.25%;
+	margin-top: 5%;
+	width: 10%;
+}
+
+.like_page {
+	margin-left: 96.5%;
+	margin-right: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	margin-bottom: 0.25%;
+	margin-top: 5%;
+	width: 3%;
+}
+
+
+.share_main {
+	margin-left: 97%;
+	margin-right: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	margin-bottom: 0.25%;
+	margin-top: 5%;
+	width: 10%;
+}
+
+
+.liked_main {
+	margin-left: 96.5%;
+	margin-right: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	margin-bottom: 0.25%;
+	margin-top: 5%;
+	width: 10%;
+}
+
+.likes_main {
+	margin-left: 96.5%;
+	margin-right: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	margin-bottom: 0.25%;
+	width: 15%;
+}
+
+.like_index {
+	margin-left: 94%;
+	margin-right: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	width: 10%;
+}
+
+.box {
+	padding: 4%;
+	margin-left: 45%;
+}
+
+.box2 {
+	padding: 4%;
+	margin-left: 56%;
+}
+
+
+.signup_form {
+	margin-left: 34.5%;
+	margin-right: 41%;
+	padding-right: 0;
+	padding-left: 1%;
+	padding-top: .5%;
+	padding-bottom: .9%;
+	background-color: rgba(60,64,72,.95);
+	color: white;
+	border-radius: 13px;
+	width: 30%;
+}
+
+#signup {
+	margin-right: 4%;
+}
+
+#login {
+	margin-right: 4%;
+}
+
+#info {
+	margin-right: 4%;
+}
+
+#info2 {
+	margin-right: 4%;
+}
+
+#likes {
+	margin-right: 4%;
+}
+
+.submit {
+	margin-left: 48.75%;
+}
+
+.submit2 {
+	margin-left: 59%;
+}
+
+.messagepop {
+  background-color: rgba(60,64,72,.98);
+  border: 2px solid black;
+  border-radius: 15px;
+  cursor:default;
+  display:none;
+  margin-top: 0;
+  margin-left: 67.2%;
+  position:absolute;
+  text-align:left;
+  width:25%;
+  z-index:50;
+  padding: .7% .7% .7%;
+}
+
+.messagepop2 {
+  background-color: rgba(60,64,72,.98);
+  border: 2px solid black;
+  border-radius: 15px;
+  cursor:default;
+  display:none;
+  margin-top: 0;
+  margin-left: 10%;
+  position:absolute;
+  text-align:left;
+  width:75%;
+  z-index:50;
+  padding: .7% .7% .7%;
+}
+
+.messagepop p, .messagepop.div {
+  border-bottom: 1px solid #EFEFEF;
+  margin: 8px 0;
+  padding-bottom: 8px;
+}
+
+.share {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.users_liked {
+	color: white;
+}
+
+#success {
+	color: white;
+	padding-top: 2%;
+}
+
+.lists {
+	display: inline-block;
+	margin-left: 1.5%;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+#remove_share {
+	margin-left: 14%;
+}
+
+.share_with {
+	margin-left: 1%;
+}
+
+.view_page {
+	margin-left: 1%;
+}
+
+.comments {
+	color: white;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	margin-top: 1%;
+}
+
+#line {
+	color: white;
+	margin-bottom: 25%
+	padding-top: 0;
+	margin-top: 0;
+}
+
+#comment_pane {
+	color: white;
+}
+
+#edit_page {
+	color: white;
+}
+
+h4 {
+	margin-bottom: .75%;
+}
+
+#edit {
+	margin-top: .2%;
+	margin-left: .2%;
+}
+
+#view_form {
+	margin-left: 79.75%;
+	margin-top: .5%;
+}
+
+.label {
+	color: white;
+}
+
+.liked2 {
+	margin-left: 1.75%;
+}
+
+.account_button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+	font-weight: normal;
+	text-align: center;
+	margin-top: 1.45%;
+	margin-left: 86%;
+	margin-right: 1%;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: white;
+	color: #333333;
+}
+
+.account_button2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-align: center;
+	margin-top: 1.45%;
+	margin-right: 65%;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: white;
+	color: #333333;
+}
+
+#bottom_button {
+	margin-bottom: 1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
