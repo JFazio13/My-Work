@@ -1,0 +1,590 @@
+div {
+	position:absolute;
+	margin:auto;
+}
+
+#disable {
+	color: white;
+	margin-top: 50%;
+	margin-left: 45%;
+	z-index: 10000;
+	font-family: Conduit;
+	src: url('../Fonts/Conduit.eot');
+	src: url('../Fonts/Conduit.eot?#iefix') format('embedded-opentype'),
+	url('../Fonts/Conduit.woff') format('woff'),
+	url('../Fonts/Conduit.svg') format('svg'),
+	url('../Fonts/Conduit.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-size: 20pt;
+}
+
+#resume {
+	color: white;
+	margin-top: 53.5%;
+	margin-left: 45%;
+	z-index: 10000;
+	font-family: Conduit;
+	src: url('../Fonts/Conduit.eot');
+	src: url('../Fonts/Conduit.eot?#iefix') format('embedded-opentype'),
+	url('../Fonts/Conduit.woff') format('woff'),
+	url('../Fonts/Conduit.svg') format('svg'),
+	url('../Fonts/Conduit.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-size: 20pt;
+}
+
+.answerStrapDiv {
+	width:1920px;
+	height:96px;
+	left:0px;
+	right:0px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.answerStrapLifeLineCenterDiv {
+	bottom:62px;
+	left:0px;
+	right:0px;
+	width:150px;
+	height:122px;
+}
+
+.answerStrapLifeLineCenterContainerDiv {
+	bottom:0px;
+	left:0px;
+	right:0px;
+	top:0px;
+	width:150px;
+	height:122px;
+}
+
+.ataGraphDiv {
+	width:330px;
+	height:500px;
+	top:125px;
+	right:-330px;
+}
+
+.ataGraphBarDiv {
+	background:url('../Images/audience_answer_bar.png') no-repeat;
+	width:45px;
+	bottom:220px;
+}
+
+.ataGraphPercentDiv{
+	font-family:Conduit;
+	font-size:20pt;
+	text-align:center;
+	width:75px;
+	color:white;
+	top:5px;
+}
+
+.ask-the-audience-graph-answer-bar-highest-flash-div{
+	width:300px;
+	height:112px;
+	background:url("../ImageFiles/life_line_parts/ata_highest_answer_flash.png") no-repeat;
+	left:-150px;
+	right:-150px;
+	top:-61px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.ataPercentStrapDiv {
+	width:146px;
+	height:70px;
+	background:url('../Images/ata_percent_strap_background.png') no-repeat;
+	top:0px;
+	bottom:0px;
+	left:15px;
+	color:white;
+	font-family:Conduit;
+	font-size:28pt;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+	
+}
+
+.contestantNameAndLocationDiv {
+	width:1920px;
+	height:244px;
+	bottom:50px;
+	background:url('../Images/Large_Win_Strap_Stretched_Gradient_Filled.png') no-repeat;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.currentLevelStrapDiv {
+	width:648px;
+	height:75px;
+	background:url('../Images/small_side_strap_fill.png') no-repeat;
+	top:25px;
+	right:-648px;
+	overflow:hidden;
+}
+
+.currentLevelStrapAmountDiv{
+	color:white;
+	font-family:Copperplate;
+	font-weight:bold;
+	font-size:46pt;
+	height:60px;
+	width:450px;
+	top:0px;
+	bottom:0px;
+	left:50px;
+	text-align:center;
+}
+.disclaimer-div{
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	background-color:black;
+}
+
+.fastestContestantDiv {
+	height:80px;
+	width:1920px;
+	background:url('../Images/fastest_time_strap_fill.png') no-repeat;
+}
+
+.fastestFingerContestantsDiv {
+	width:1920px;
+	height:845px;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.logoContainerDiv {
+	background-color:black;
+	width:1920px;
+	height:1080px;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.logoDiv{
+	width:450px;
+	height:450px;
+	top:0px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+}
+
+.stageContainerDiv {
+	width:1920px;
+	height:1080px;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	overflow:hidden;
+	background:url('../Images/backGround.png') no-repeat;
+}
+
+.fastestFingerRevealOrderDiv{
+	background:url('../Images/tree_background.png') no-repeat;
+	height:1080px;
+	width:760px;
+	right:-760px;
+	top:0px;
+	bottom:0px;
+}
+
+.fastestFingerTreeAnswerDiv{
+	background:url('../Images/fastest_tree_strap_fill.png') no-repeat;
+	width:780px;
+	height:96px;
+	left:760px;
+}
+
+.fastestFingerTreeQuestionDiv {
+	width:680px;
+	height:390px;
+	top:50px;
+	left:50px;
+}
+
+.leftAnswerDiv {
+	width:857px;
+	height:96px;
+	left:104px;
+}
+
+.lifeLinesLeftStrapDiv {
+	width:1696px;
+	height:200px;
+	background:url('../Images/large_lifeline_strap_holder.png') no-repeat;
+	bottom:22px;
+	left:1920px;
+	overflow:hidden;
+}
+
+.lifelineTreeDiv {
+	top:-50px;
+	bottom:-50px;
+	right:-50px;
+	left:-50px;
+	width:123px;
+	height:100px;
+}
+
+.lifelineTreeHolderDiv{
+	width:123px;
+	height:100px;
+}
+
+.lifelineStrapHolderDiv{
+	width:200px;
+	height:162px;
+}
+
+.lifeLineStrapDiv {
+	height:140px;
+	width:171px;
+	top:-50px;
+	left:-50px;
+	bottom:-50px;
+	right:-50px;
+}
+
+.millionaireWinnerNameDiv{
+	width:1200px;
+	height:80px;
+	left:0px;
+	right:0px;
+	top:70px;
+	color:#FFAD16;
+	font-family:Copperplate;
+	text-align:center;
+	font-size:60pt;
+	letter-spacing:2px;
+}
+
+.millionaireWinnerTitleDiv {
+	width:1920px;
+	height:387px;
+	background:url('../Images/bottom_overlay.png') no-repeat;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.moneyTreeDiv {
+	background:url('../Images/tree_background.png') no-repeat;
+	height:1080px;
+	width:760px;
+	right:-760px;
+	top:0px;
+	bottom:0px;
+	overflow:hidden;
+}
+
+.pafClockDiv {
+	width:400px;
+	height:400px;
+	background:url('../Images/paf_clock_background.png') no-repeat;
+	bottom:550px;
+	right:-400px;
+}
+
+.pafClockTimeDiv {
+	font-family:Copperplate;
+	color:white;
+	font-size:120pt;
+	font-weight:bold;
+	width:400px;
+	height:164px;
+	left:0px;
+	right:0px;
+	top:120px;
+	text-align:center;
+	text-shadow: 0px 0px 5px black;
+}
+
+.rightAnswerDiv {
+	width:857px;
+	height:96px;
+	right:70px;
+}
+
+.questionStrapDiv {
+	width:1920px;
+	height:192px;
+	bottom:230px;
+	left:0px;
+	right:0px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.strap {
+	left:135px;
+	z-index: 1007;
+}
+
+.line {
+	top:77.5px;
+}
+
+.line2 {
+	left: 0;
+	top:49px;
+}
+
+.line3 {
+	left: 0;
+	top:49px;
+}
+
+.clock_div{
+	left: 1px;
+}
+
+.q_clock {
+	bottom:188px;
+	left: 380px;
+	width:60.35%;
+	z-index: 1003;
+}
+
+.clock_gold {
+	bottom:188px;
+	left: 384px;
+	width:60.25%;
+	z-index: 1002;
+}
+
+.clock_red {
+	top: -86px; 
+	left:870px;
+	width:9.35%;
+	z-index: 1006;
+}
+
+.clock_white {
+	top: -86px; 
+	left:870px;
+	width:9.35%;
+	z-index: 1005;
+}
+
+.clock_glow {
+	top: -1px; 
+	left:862px;
+	width:10.25%;
+	z-index: 1009;
+}
+
+#dot_dark1, #dot_dark2, #dot_dark3, #dot_dark4, #dot_dark5, #dot_dark6, #dot_dark7, #dot_dark8,
+#dot_dark9, #dot_dark10, #dot_dark11, #dot_dark12, #dot_dark13, #dot_dark14, #dot_dark15,
+#dot_dark_right1, #dot_dark_right2, #dot_dark_right3, #dot_dark_right4, #dot_dark_right5, #dot_dark_right6, #dot_dark_right7, #dot_dark_right8,
+#dot_dark_right9, #dot_dark_right10, #dot_dark_right11, #dot_dark_right12, #dot_dark_right13, #dot_dark_right14, #dot_dark_right15,
+#gold_dot_dark1, #gold_dot_dark2, #gold_dot_dark3, #gold_dot_dark4, #gold_dot_dark5, #gold_dot_dark6, #gold_dot_dark7, #gold_dot_dark8,
+#gold_dot_dark9, #gold_dot_dark10, #gold_dot_dark11, #gold_dot_dark12, #gold_dot_dark13, #gold_dot_dark14, #gold_dot_dark15,
+#gold_dot_dark_right1, #gold_dot_dark_right2, #gold_dot_dark_right3, #gold_dot_dark_right4, #gold_dot_dark_right5, #gold_dot_dark_right6, #gold_dot_dark_right7, #gold_dot_dark_right8,
+#gold_dot_dark_right9, #gold_dot_dark_right10, #gold_dot_dark_right11, #gold_dot_dark_right12, #gold_dot_dark_right13, #gold_dot_dark_right14, #gold_dot_dark_right15,
+#dot1, #dot2, #dot3, #dot4, #dot5, #dot6, #dot7, #dot8,
+#dot9, #dot10, #dot11, #dot12, #dot13, #dot14, #dot15,
+#dot_right1, #dot_right2, #dot_right3, #dot_right4, #dot_right5, #dot_right6, #dot_right7, #dot_right8,
+#dot_right9, #dot_right10, #dot_right11, #dot_right12, #dot_right13, #dot_right14, #dot_right15 {
+	top: -20px; 
+	width:1.05%;
+	z-index: 1005;
+}
+
+#gold_dot_dark1, #dot_dark1, #dot1 {
+	left: 830px;
+}
+#gold_dot_dark2, #dot_dark2, #dot2 {
+	left: 802px;
+}
+#gold_dot_dark3, #dot_dark3, #dot3 {
+	left: 774px;
+}
+#gold_dot_dark4, #dot_dark4, #dot4 {
+	left: 746px;
+}
+#gold_dot_dark5, #dot_dark5, #dot5 {
+	left: 718px;
+}
+#gold_dot_dark6, #dot_dark6, #dot6 {
+	left: 690px;
+}
+#gold_dot_dark7, #dot_dark7, #dot7 {
+	left: 662px;
+}
+#gold_dot_dark8, #dot_dark8, #dot8 {
+	left: 634px;
+}
+#gold_dot_dark9, #dot_dark9, #dot9 {
+	left: 606px;
+}
+#gold_dot_dark10, #dot_dark10, #dot10 {
+	left: 578px;
+}
+#gold_dot_dark11, #dot_dark11, #dot11 {
+	left: 550px;
+}
+#gold_dot_dark12, #dot_dark12, #dot12 {
+	left: 522px;
+}
+#gold_dot_dark13, #dot_dark13, #dot13 {
+	left: 494px;
+}
+#gold_dot_dark14, #dot_dark14, #dot14 {
+	left: 466px;
+}
+#gold_dot_dark15, #dot_dark15, #dot15 {
+	left: 438px;
+}
+
+#gold_dot_dark_right1, #dot_dark_right1, #dot_right1 {
+	left: 1069px;
+}
+#gold_dot_dark_right2, #dot_dark_right2, #dot_right2 {
+	left: 1097px;
+}
+#gold_dot_dark_right3, #dot_dark_right3, #dot_right3 {
+	left: 1125px;
+}
+#gold_dot_dark_right4, #dot_dark_right4, #dot_right4 {
+	left: 1153px;
+}
+#gold_dot_dark_right5, #dot_dark_right5, #dot_right5 {
+	left: 1181px;
+}
+#gold_dot_dark_right6, #dot_dark_right6, #dot_right6 {
+	left: 1209px;
+}
+#gold_dot_dark_right7, #dot_dark_right7, #dot_right7 {
+	left: 1237px;
+}
+#gold_dot_dark_right8, #dot_dark_right8, #dot_right8 {
+	left: 1265px;
+}
+#gold_dot_dark_right9, #dot_dark_right9, #dot_right9 {
+	left: 1293px;
+}
+#gold_dot_dark_right10, #dot_dark_right10, #dot_right10 {
+	left: 1321px;
+}
+#gold_dot_dark_right11, #dot_dark_right11, #dot_right11 {
+	left: 1349px;
+}
+#gold_dot_dark_right12, #dot_dark_right12, #dot_right12 {
+	left: 1377px;
+}
+#gold_dot_dark_right13, #dot_dark_right13, #dot_right13 {
+	left: 1405px;
+}
+#gold_dot_dark_right14, #dot_dark_right14, #dot_right14 {
+	left: 1433px;
+}
+#gold_dot_dark_right15, #dot_dark_right15, #dot_right15 {
+	left: 1461px;
+}
+
+.clockTime {
+	font-family: Conduit;
+	src: url('../Fonts/Conduit.eot');
+	src: url('../Fonts/Conduit.eot?#iefix') format('embedded-opentype'),
+	url('../Fonts/Conduit.woff') format('woff'),
+	url('../Fonts/Conduit.svg') format('svg'),
+	url('../Fonts/Conduit.ttf') format('truetype');
+	font-weight: normal;
+	font-style: bold;
+	font-size: 38pt;
+	color: white;
+	bottom:189px;
+	left:0px;
+	right:0px;
+	text-align:center;
+	z-index: 1004;
+}
+
+/*
+.pafClockTimeDiv {
+	font-family:Copperplate;
+	color:white;
+	font-size:120pt;
+	font-weight:bold;
+	width:400px;
+	height:164px;
+	left:0px;
+	right:0px;
+	top:120px;
+	text-align:center;
+	text-shadow: 0px 0px 5px black;
+}
+*/
+
+.stageBackgroundDiv {
+	width:1920px;
+	height:1080px;
+	top:0px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+}
+
+.totalPrizeMoneyDiv {
+	width:1920px;
+	height:387px;
+	background:url('../Images/bottom_overlay.png') no-repeat;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.totalPrizeMoneyWonDiv {
+	width:1200px;
+	height:130px;
+	left:0px;
+	right:0px;
+	bottom:45px;
+	color:#FFAD16;
+	font-family:Copperplate;
+	text-align:center;
+	font-size:100pt;
+	letter-spacing:2px;
+}
+
+.winStrapDiv {
+	width:1920px;
+	height:192px;
+	background:url('../Images/Large_Win_Strap_Filled.png') no-repeat;
+	left:0px;
+	right:0px;
+	bottom:100px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}

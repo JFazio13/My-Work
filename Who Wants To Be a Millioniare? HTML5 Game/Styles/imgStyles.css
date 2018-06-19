@@ -1,0 +1,270 @@
+img {
+	position:absolute;
+	margin:auto;
+}
+
+.ataGraph {
+	width: 95.3%;
+}
+
+.fastestFingerLeftGlowImg {
+	top:0px;
+	bottom:0px;
+	left:400px;
+}
+
+.fastestFingerRightGlowImg {
+	top:0px;
+	bottom:0px;
+	right:400px;
+}
+
+.fastestTimeCorrectFillImg {
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.fastestTreeAnswerDiagonalImg {
+	top:0px;
+	bottom:0px;
+	left:50px;
+	width:30px;
+}
+
+#finalA {
+	top:5.5px;
+	left:7px;
+}
+
+#finalB {
+	top:5.5px;
+	left:10px;
+}
+
+#finalC {
+	top:5px;
+	left:7px;
+}
+
+#finalD {
+	top:5px;
+	left:10px;
+}
+
+.diagonalImg {
+	top:0px;
+	bottom:0px;
+	left:45px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+#answerDiag {
+	top: 19px;
+}
+
+.finalImg {
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+	width: 97%;
+	margin-top: 3px;
+	margin-left: 1px;
+}
+
+.correctImg {
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+	width: 97%;
+	margin-top: 3px;
+	margin-left: 1px;
+}
+
+.lifelineCenterImg {
+	width:150px;
+	height:122px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.lifelineCenterGlowImg {
+	top:-30px;
+	bottom:-30px;
+	left:-30px;
+	right:-30px;
+	width:150px;
+	height:122px;
+}
+
+#flash1 {
+	width: 25%;
+	top: 902px;
+	left: 45px;
+	opacity: 0;
+}
+#flash2 {
+	width: 25%;
+	top: 849px;
+	left: 45px;
+	opacity: 0;
+}
+#flash3 {
+	width: 25%;
+	top: 796px;
+	left: 45px;
+	opacity: 0;
+}
+#flash4 {
+	width: 25%;
+	top: 743px;
+	left: 45px;
+	opacity: 0;
+}
+#flash5 {
+	width: 25%;
+	top: 689px;
+	left: 45px;
+	opacity: 0;
+}
+#flash6 {
+	width: 25%;
+	top: 636px;
+	left: 45px;
+	opacity: 0;
+}
+#flash7 {
+	width: 25%;
+	top: 583px;
+	left: 45px;
+	opacity: 0;
+}
+#flash8 {
+	width: 25%;
+	top: 530px;
+	left: 45px;
+	opacity: 0;
+}
+#flash9 {
+	width: 25%;
+	top: 477px;
+	left: 45px;
+	opacity: 0;
+}
+#flash10 {
+	width: 25%;
+	top: 423px;
+	left: 45px;
+	opacity: 0;
+}
+#flash11 {
+	width: 25%;
+	top: 369px;
+	left: 45px;
+	opacity: 0;
+}
+#flash12 {
+	width: 25%;
+	top: 316px;
+	left: 45px;
+	opacity: 0;
+}
+#flash13 {
+	width: 25%;
+	top: 263px;
+	left: 45px;
+	opacity: 0;
+}
+#flash14 {
+	width: 25%;
+	top: 210px;
+	left: 45px;
+	opacity: 0;
+}
+#flash15 {
+	width: 25%;
+	top: 157px;
+	left: 45px;
+	opacity: 0;
+}
+
+.lifelineTreeImg {
+	height:100px;
+}
+
+.lifelineStrapImg {
+	height:140px;
+}
+
+.lifelineYellowTreeImg {
+	height:120px;
+	left: -10px;
+	top: -9px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.lifelineYellowStrapImg {
+	height:140px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.lifelineUsedImg{
+	height:100px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.lifelineUsedStrapImg{
+	height:140px;
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}
+
+.moneyTreeDiagonalImg{
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	margin:auto;
+}
+
+.tree {
+	width: 96%;
+	right: 150px;
+}
+
+.glow {
+	top: 950;
+	left: 55px;
+	opacity: 0;
+}
+
+#stq {
+	width: 105%;
+	height: 105%;
+}
+
+.bar {
+	left: 85px;
+	opacity: 1;
+	width: 60%;
+}
+
+.question_glint {
+	z-index: 1010;
+}
+
+.sideStrapGoldImg{
+	opacity:0;
+	-moz-opacity:0;
+	-webkit-opacity:0;
+}

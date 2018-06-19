@@ -1,0 +1,558 @@
+<html>
+
+	<body>
+
+		<div class="stageContainerDiv">
+			<video id="video" width="1920" height="1080" autoplay></video>
+			<!-- Stage Background Div -->
+			<div class="stageBackgroundDiv">
+				<img src="Images/Millionaire_Background.png" id="stageBackgroundImg" style="opacity:0;-moz-opacity:0;-webkit-opacity:0;"/>
+			</div>
+			
+			<!-- Question Strap Div -->
+			<div class="questionStrapDiv">
+				<img class = "q_clock" src="Images/clock.png" />
+				<img src="Images/clock_gold.png" class="clock_gold"/>
+				<div class="clockTime">15</div>
+				<img src="Images/clock_white.png" class="clock_white"/>
+				<img src="Images/clock_red.png" class="clock_red"/>
+				<!-- <img src="Images/clock_glow.png" class="clock_glow"/> -->
+				<!-- <img src="Images/question_glint.png" class="question_glint"/> -->
+
+				<img class = "dot_dark" id = "dot_dark1" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark2" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark3" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark4" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark5" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark6" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark7" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark8" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark9" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark10" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark11" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark12" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark13" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark14" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark15" src="Images/dot_dark.png" />
+
+				<img class = "dot_dark" id = "dot_dark_right1" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right2" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right3" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right4" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right5" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right6" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right7" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right8" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right9" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right10" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right11" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right12" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right13" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right14" src="Images/dot_dark.png" />
+				<img class = "dot_dark" id = "dot_dark_right15" src="Images/dot_dark.png" />
+
+				<img class = "dot_dark_gold" id = "gold_dot_dark1" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark2" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark3" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark4" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark5" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark6" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark7" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark8" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark9" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark10" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark11" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark12" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark13" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark14" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark15" src="Images/dot_dark_gold.png" />
+
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right1" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right2" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right3" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right4" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right5" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right6" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right7" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right8" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right9" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right10" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right11" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right12" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right13" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right14" src="Images/dot_dark_gold.png" />
+				<img class = "dot_dark_gold" id = "gold_dot_dark_right15" src="Images/dot_dark_gold.png" />
+
+				<img class = "dot" id = "dot1" src="Images/dot.png" />
+				<img class = "dot" id = "dot2" src="Images/dot.png" />
+				<img class = "dot" id = "dot3" src="Images/dot.png" />
+				<img class = "dot" id = "dot4" src="Images/dot.png" />
+				<img class = "dot" id = "dot5" src="Images/dot.png" />
+				<img class = "dot" id = "dot6" src="Images/dot.png" />
+				<img class = "dot" id = "dot7" src="Images/dot.png" />
+				<img class = "dot" id = "dot8" src="Images/dot.png" />
+				<img class = "dot" id = "dot9" src="Images/dot.png" />
+				<img class = "dot" id = "dot10" src="Images/dot.png" />
+				<img class = "dot" id = "dot11" src="Images/dot.png" />
+				<img class = "dot" id = "dot12" src="Images/dot.png" />
+				<img class = "dot" id = "dot13" src="Images/dot.png" />
+				<img class = "dot" id = "dot14" src="Images/dot.png" />
+				<img class = "dot" id = "dot15" src="Images/dot.png" />
+
+				<img class = "dot" id = "dot_right1" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right2" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right3" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right4" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right5" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right6" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right7" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right8" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right9" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right10" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right11" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right12" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right13" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right14" src="Images/dot.png" />
+				<img class = "dot" id = "dot_right15" src="Images/dot.png" />
+
+				<img class = "line" src="Images/line.png" />
+				<img class = "strap" src="Images/questionstrap.png" />
+				<table class="questionTable">
+					<tr>
+						<td class="questionTd">
+							A sample question will go here...
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<!-- Answer Straps A and B Div -->
+			<div class="answerStrapDiv" style="bottom:148px;" >
+				<img class = "line2" src="Images/line2.png" />
+				<div class="leftAnswerDiv" id="answerA" >
+					<img src="Images/answerstrapleft.png" />
+					<img src="Images/Final_Answer_Fill_Flip.png" class="finalImg" id="finalA"/>
+					<img src="Images/Correct_Answer_Fill_Flip.png" class="correctImg" id="finalA"/>
+					<img src="Images/orange_diagonal.png" class="diagonalImg" id="answerDiag"/>
+					<p class="letterP">A:</p>
+					<p class="answerP">Answer for A Goes Here...</p>
+					<div class="ataPercentStrapDiv">
+						<img src="Images/ata_percent_strap.png" />
+						<p class="ataPercentStrapP" id="ataPercentStrapA">100%</p>
+					</div>
+				</div>
+				<div class="rightAnswerDiv" id="answerB">
+					<img src="Images/answerstrap.png" />
+					<img src="Images/Final_Answer_Fill.png" class="finalImg" id="finalB"/>
+					<img src="Images/Correct_Answer_Fill.png" class="correctImg" id="finalB"/>
+					<img src="Images/orange_diagonal.png" class="diagonalImg" id="answerDiag" />
+					<p class="letterP">B:</p>
+					<p class="answerP">Answer for B Goes Here...</p>
+					<div class="ataPercentStrapDiv">
+						<img src="Images/ata_percent_strap.png" />
+						<p class="ataPercentStrapP" id="ataPercentStrapB">100%</p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Answer Straps C and D Div -->
+			<div class="answerStrapDiv" style="bottom:25px;" >
+				<img class = "line3" src="Images/line2.png" />
+				<div class="leftAnswerDiv" id="answerC" >
+					<img src="Images/answerstrapleft.png" />
+					<img src="Images/Final_Answer_Fill_Flip.png" class="finalImg" id="finalC" />
+					<img src="Images/Correct_Answer_Fill_Flip.png" class="correctImg" id="finalC"/>
+					<img src="Images/orange_diagonal.png" class="diagonalImg" id="answerDiag"/>
+					<p class="letterP">C:</p>
+					<p class="answerP">Answer for C Goes Here...</p>
+					<div class="ataPercentStrapDiv">
+						<img src="Images/ata_percent_strap.png" />
+						<p class="ataPercentStrapP" id="ataPercentStrapC">100%</p>
+					</div>
+				</div>
+				<div class="rightAnswerDiv" id="answerD">
+					<img src="Images/answerstrap.png" />
+					<img src="Images/Final_Answer_Fill.png" class="finalImg" id="finalD"/>
+					<img src="Images/Correct_Answer_Fill.png" class="correctImg" id="finalD"/>
+					<img src="Images/orange_diagonal.png" class="diagonalImg" id="answerDiag"/>
+					<p class="letterP">D:</p>
+					<p class="answerP">Answer for D Goes Here...</p>
+					<div class="ataPercentStrapDiv">
+						<img src="Images/ata_percent_strap.png" />
+						<p class="ataPercentStrapP" id="ataPercentStrapD">100%</p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Answer Straps Life Line Centered Div -->
+			<div class="answerStrapLifeLineCenterDiv">
+				<div class="answerStrapLifeLineCenterContainerDiv">
+					<img src="Images/lifeline_glow_ring.png" class="lifelineCenterGlowImg" />
+					<img src="Images/stq.png" class="lifelineCenterImg" id="stqLifeLineCenterImg"/>
+					<img src="Images/ata.png" class="lifelineCenterImg" id="ataLifeLineCenterImg"/>
+					<img src="Images/paf.png" class="lifelineCenterImg" id="pafLifeLineCenterImg"/>
+					<img src="Images/dd.png" class="lifelineCenterImg" id="ddLifeLineCenterImg"/>
+				</div>
+			</div>
+			
+			<!-- Win Strap Div -->
+			<div class="winStrapDiv">
+				<img src="Images/winnings_glow.png" style="top:0px;bottom:0px;left:400px;"/>
+				<img src="Images/winnings_glow.png" style="top:0px;bottom:0px;right:400px;"/>
+				<p class="winningsP">$250,000</p>
+			</div>
+			
+			<!-- Fastest Finger Contestants Div -->
+			<div class="fastestFingerContestantsDiv">
+				<div class="fastestContestantDiv" id="fastestContestant1" style="top:0px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+				<div class="fastestContestantDiv" id="fastestContestant2" style="top:85px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+				<div class="fastestContestantDiv" id="fastestContestant3" style="top:170px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+				<div class="fastestContestantDiv" id="fastestContestant4" style="top:255px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+				<div class="fastestContestantDiv" id="fastestContestant5" style="top:340px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+				<div class="fastestContestantDiv" id="fastestContestant6" style="top:425px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+				<div class="fastestContestantDiv" id="fastestContestant7" style="top:510px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+				<div class="fastestContestantDiv" id="fastestContestant8" style="top:595px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+				<div class="fastestContestantDiv" id="fastestContestant9" style="top:680px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+				<div class="fastestContestantDiv" id="fastestContestant10" style="top:765px;">
+					<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg"/>
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+					<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+					<p class="fastestContestantNameP">Contestant Name Here...</p>
+					<p class="fastestContestantTimeP">20.00s</p>
+					<img src="Images/fastest_time_strap_gradient.png" />
+				</div>
+			</div>
+			
+			<!-- Fastest Finger Winner Div -->
+			<div class="fastestContestantDiv" id="fastestContestant" style="bottom:100px;opacity:0;-moz-opacity:0;-webkit-opacity:0;left:0px;right:0px;">
+				<img src="Images/fastest_time_strap_fast_fill.png" class="fastestTimeCorrectFillImg" style="opacity:1;-mz-opacity:1;-webkit-opacity:1;"/>
+				<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerLeftGlowImg" />
+				<img src="Images/fastest_finger_strap_glow.png" class="fastestFingerRightGlowImg" />
+				<p class="fastestContestantNameP">Contestant Name Here...</p>
+				<p class="fastestContestantTimeP" style="color:white;">20.00s</p>
+				<img src="Images/fastest_time_strap_gradient.png" />
+			</div>
+			
+			<!-- Contestant Name Strap Div -->
+			<div class="contestantNameAndLocationDiv">
+				<p class="contestantNameP">
+					UNNAMED PLAYER
+				</p>
+				<p class="contestantLocationP">
+					UNNAMED LOCATION
+				</p>
+			</div>
+						
+			<!-- Fastest Finger Tree Order Div -->
+			<div class="fastestFingerRevealOrderDiv">
+				<img src="Images/tree_seperator.png" />
+				<div class="fastestFingerTreeQuestionDiv">
+					<p class="fastestFingerTreeQuestionP">The question for fastest finger will go here</p>
+				</div>
+				<div class="fastestFingerTreeAnswerDiv" style="bottom:450px;" id="fastestAnswerOrder1">
+					<img src="Images/orange_diagonal.png" class="fastestTreeAnswerDiagonalImg" />
+					<p class="fastestTreeLetterP">?:</p>
+					<p class="fastestTreeAnswerP">Answer goes here...</p>
+					<img src="Images/fastest_tree_strap.png" />
+				</div>
+				<div class="fastestFingerTreeAnswerDiv" style="bottom:325px;" id="fastestAnswerOrder2">
+					<img src="Images/orange_diagonal.png" class="fastestTreeAnswerDiagonalImg" />
+					<p class="fastestTreeLetterP">?:</p>
+					<p class="fastestTreeAnswerP">Answer goes here...</p>
+					<img src="Images/fastest_tree_strap.png" />
+				</div>
+				<div class="fastestFingerTreeAnswerDiv" style="bottom:200px;" id="fastestAnswerOrder3">
+					<img src="Images/orange_diagonal.png" class="fastestTreeAnswerDiagonalImg" />
+					<p class="fastestTreeLetterP">?:</p>
+					<p class="fastestTreeAnswerP">Answer goes here...</p>
+					<img src="Images/fastest_tree_strap.png" />
+				</div>
+				<div class="fastestFingerTreeAnswerDiv" style="bottom:75px;" id="fastestAnswerOrder4">
+					<img src="Images/orange_diagonal.png" class="fastestTreeAnswerDiagonalImg" />
+					<p class="fastestTreeLetterP">?:</p>
+					<p class="fastestTreeAnswerP">Answer goes here...</p>
+					<img src="Images/fastest_tree_strap.png" />
+				</div>
+			</div>
+			
+			
+			
+			<!-- Money Tree Div -->
+			<div class="moneyTreeDiv">
+				<img src="Images/tree.png" class="tree">
+				<img src="Images/glow.png" class="glow">
+				<img src="Images/bar.png" class="bar">
+
+				<img src="Images/flash.png" class = "flash" id="flash1"/>
+				<img src="Images/flash.png" class = "flash" id="flash2"/>
+				<img src="Images/flash.png" class = "flash" id="flash3"/>
+				<img src="Images/flash.png" class = "flash" id="flash4"/>
+				<img src="Images/flash.png" class = "flash" id="flash5"/>
+				<img src="Images/flash.png" class = "flash" id="flash6"/>
+				<img src="Images/flash.png" class = "flash" id="flash7"/>
+				<img src="Images/flash.png" class = "flash" id="flash8"/>
+				<img src="Images/flash.png" class = "flash" id="flash9"/>
+				<img src="Images/flash.png" class = "flash" id="flash10"/>
+				<img src="Images/flash.png" class = "flash" id="flash11"/>
+				<img src="Images/flash.png" class = "flash" id="flash12"/>
+				<img src="Images/flash.png" class = "flash" id="flash13"/>
+				<img src="Images/flash.png" class = "flash" id="flash14"/>
+				<img src="Images/flash.png" class = "flash" id="flash15"/>
+
+				<div class="lifelineTreeHolderDiv" style="top:60px;left:70px;">
+					<div class="lifelineTreeDiv pafLifeLine">
+						<img src="Images/paf.png" class="lifelineTreeImg"/>
+						<img src="Images/lifeline_glow_ring.png" class="lifelineYellowTreeImg"/>
+						<img src="Images/lifeline_used.png" class="lifelineUsedImg"/>
+					</div>
+				</div>
+				<div class="lifelineTreeHolderDiv ffLifeLine" style="top:60px;left:270px;">
+					<div class="lifelineTreeDiv">
+						<img src="Images/dd.png" class="lifelineTreeImg"/>
+						<img src="Images/lifeline_glow_ring.png" class="lifelineYellowTreeImg"/>
+						<img src="Images/lifeline_used.png" class="lifelineUsedImg"/>
+					</div>
+				</div>
+				<div class="lifelineTreeHolderDiv ataLifeLine" style="top:60px;left:470px;">
+					<div class="lifelineTreeDiv">
+						<img src="Images/ata.png" class="lifelineTreeImg"/>
+						<img src="Images/lifeline_glow_ring.png" class="lifelineYellowTreeImg"/>
+						<img src="Images/lifeline_used.png" class="lifelineUsedImg"/>
+					</div>
+				</div>
+				<div class="lifelineTreeHolderDiv stqLifeLine" style="top:60px;left:870px;">
+					<div class="lifelineTreeDiv">
+						<img src="Images/stq.png" id="stq" class="lifelineTreeImg"/>
+						<img src="Images/lifeline_glow_ring.png" class="lifelineYellowTreeImg"/>
+						<img src="Images/lifeline_used.png" class="lifelineUsedImg"/>
+					</div>
+				</div>
+
+				<table class="moneyTreeTable">
+					
+				</table>
+				<img src="Images/tree_seperator.png" />
+			</div>
+			
+			<!-- Life Lines Left Strap -->
+			<div class="lifeLinesLeftStrapDiv">
+				<div class="lifelineStrapHolderDiv pafStrapLifeLine" style="top:0px;bottom:0px;left:400px;">
+					<div class="lifeLineStrapDiv">
+						<img src="Images/paf.png" class="lifelineStrapImg"/>
+						<img src="Images/paf_yellow.png" class="lifelineYellowStrapImg"/>
+						<img src="Images/lifeline_used.png" class="lifelineUsedStrapImg"/>
+					</div>
+				</div>
+				<div class="lifelineStrapHolderDiv ffStrapLifeLine" style="top:0px;bottom:0px;left:745px;">
+					<div class="lifeLineStrapDiv">
+						<img src="Images/dd.png" class="lifelineStrapImg"/>
+						<img src="Images/5050_yellow.png" class="lifelineYellowStrapImg"/>
+						<img src="Images/lifeline_used.png" class="lifelineUsedStrapImg"/>
+					</div>
+				</div>
+				<div class="lifelineStrapHolderDiv ataStrapLifeLine" style="top:0px;bottom:0px;left:1090px;">
+					<div class="lifeLineStrapDiv">
+						<img src="Images/ata.png" class="lifelineStrapImg"/>
+						<img src="Images/ata_yellow.png" class="lifelineYellowStrapImg"/>
+						<img src="Images/lifeline_used.png" class="lifelineUsedStrapImg"/>
+					</div>
+				</div>
+				<div class="lifelineStrapHolderDiv stqStrapLifeLine" style="top:0px;bottom:0px;left:1870px;">
+					<div class="lifeLineStrapDiv">
+						<img src="Images/stq.png" class="lifelineStrapImg"/>
+						<img src="Images/stq_yellow.png" class="lifelineYellowStrapImg"/>
+						<img src="Images/lifeline_used.png" class="lifelineUsedStrapImg"/>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Ask The Audience Graph Div -->
+			<div class="ataGraphDiv">
+				<img src="Images/audience_graph.png" class="ataGraph">
+
+				<div class="ataGraphBarDiv" id="graphBarA" style="left:34px;">
+					<div class="ask-the-audience-graph-answer-bar-highest-flash-div"></div>
+				</div>
+
+				<div class="ataGraphBarDiv" id="graphBarB" style="left:103px;">
+					<div class="ask-the-audience-graph-answer-bar-highest-flash-div"></div>
+				</div>
+
+				<div class="ataGraphBarDiv" id="graphBarC" style="left:171px;">
+					<div class="ask-the-audience-graph-answer-bar-highest-flash-div"></div>
+				</div>
+
+				<div class="ataGraphBarDiv" id="graphBarD" style="left:238px;">
+					<div class="ask-the-audience-graph-answer-bar-highest-flash-div"></div>
+				</div>
+
+				<div class="ataGraphPercentDiv" id="graphPercentA" style="left:21px;"></div>
+				<div class="ataGraphPercentDiv" id="graphPercentB" style="left:93px;"></div>
+				<div class="ataGraphPercentDiv" id="graphPercentC" style="left:160px;"></div>
+				<div class="ataGraphPercentDiv" id="graphPercentD" style="left:228px;"></div>
+
+			</div>
+			
+			<!-- Phone a Friend Clock Div -->
+			<div class="pafClockDiv">
+				<img src="Images/clock_ring_drained.png" />
+				<div style="width:200px;height:400px;left:0px;top:0px;bottom:0px;overflow:hidden;">
+					<img src="Images/left_half_clock_ring.png" style="top:0px;bottom:0px;" id="pafLeftRingImg"/>
+				</div>
+				<div style="width:200px;height:400px;right:0px;top:0px;bottom:0px;overflow:hidden;">
+					<img src="Images/right_half_clock_ring.png" style="top:0px;bottom:0px;left:-200px;" id="pafRightRingImg"/>
+				</div>
+				<div class="pafClockTimeDiv">30</div>
+			</div>
+			
+			<!-- Millionaire Winner Title Div -->
+			<div class="millionaireWinnerTitleDiv">
+				<img src="Images/Large_Win_Strap_Background.png" style="top:15px;"/>
+				<img src="Images/Large_Win_Strap_Gradient.png" style="top:15px;"/>
+				<img src="Images/millionaire.png" style="top:227px;left:0px;right:0px;"/>
+				<div class="millionaireWinnerNameDiv">UNNAMED PLAYER</div>
+			</div>
+			
+			<!-- Total Prize Money Div -->
+			<div class="totalPrizeMoneyDiv">
+				<img src="Images/Large_Win_Strap_Background.png" style="top:180px;"/>
+				<img src="Images/Large_Win_Strap_Gradient.png" style="top:180px;"/>
+				<img src="Images/total_prize_money.png" style="top:15px;left:0px;right:0px;"/>
+				<div class="totalPrizeMoneyWonDiv">$0</div>
+			</div>
+			
+			<!-- Current Level Strap Div-->
+			<div class="currentLevelStrapDiv">
+				<img src="Images/small_side_strap.png" />
+				<img src="Images/small_side_strap_gold.png" class="sideStrapGoldImg"/>
+				<div class="currentLevelStrapAmountDiv">
+					$250,000
+				</div>
+			</div>
+			
+			<div class="logoContainerDiv">
+				<div class="logoDiv">
+					<img src="Images/logo_beam_blue.png" style="top:-400px;bottom:-400px;left:-400px;right:-400px;" id="logoBeam1Img"/>
+					<img src="Images/logo_beam_blue.png" style="top:-400px;bottom:-400px;left:-400px;right:-400px;" id="logoBeam2Img"/>
+					<img src="Images/logo.png" />
+				</div>
+			</div>
+			
+			<div class="disclaimer-div">
+				<div style="width:800px;height:600px;top:0px;bottom:0px;left:0px;right:0px;">
+					<table class="disclaimer-table">
+						<tr>
+							<td class="disclaimer-table-td">
+								<strong style="font-size:40pt;">DISCLAIMER</strong>
+								<br />
+								<br />
+								This open source application is available to anyone and may be used for <span style="text-decoration:underline;">non-commercial purposes only</span>. You may use the graphics, sounds and source code of this application to create other open source projects, but please be sure to credit the original author(s).
+								<br />
+								<br />
+								This application is released to the public <span style="text-decoration:underline;">as-is and without warranty</span>.
+								<br />
+								<br />
+								If you have questions about this application you may contact me on the Regisfan Forums or my YouTube channel at <a target="_blank" href="https://www.youtube.com/user/FlaminOne" style="text-decoration:none;color:white;">https://www.youtube.com/user/FlaminOne</a>.
+								<br />
+								<br />
+								Press the <span style="text-decoration:underline;">space</span> bar to begin...
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+	<head>
+		<title>WWTBAM Classic</title>
+		
+		<link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+		
+		<link rel="stylesheet" type="text/css" href="Styles/reset.css">
+		<link rel="stylesheet" type="text/css" href="Styles/bodyStyles.css">
+		<link rel="stylesheet" type="text/css" href="Styles/divStyles.css">
+		<link rel="stylesheet" type="text/css" href="Styles/pStyles.css">
+		<link rel="stylesheet" type="text/css" href="Styles/imgStyles.css">
+		<link rel="stylesheet" type="text/css" href="Styles/tableStyles.css">
+		
+		<script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="Scripts/jquery.3d.js"></script>
+		<script type="text/javascript" src="Scripts/accounting.js"></script>
+		<script type="text/javascript" src="Scripts/Variables.js"></script>
+		<script type="text/javascript" src="Scripts/CameraControl.js"></script>
+		<script type="text/javascript" src="Scripts/AudioControl.js"></script>
+		<script type="text/javascript" src="Scripts/FastestFingerControl.js"></script>
+		<script type="text/javascript" src="Scripts/GeneralControl.js"></script>
+		<script type="text/javascript" src="Scripts/QuestionAndAnswerControl.js"></script>
+		<script type="text/javascript" src="Scripts/WinningsControl.js"></script>
+		<script type="text/javascript" src="Scripts/MoneyTreeControl.js"></script>
+		<script type="text/javascript" src="Scripts/LifelineControl.js"></script>
+		<script type="text/javascript" src="Scripts/ContestantsControl.js"></script>
+		<script type="text/javascript" src="Scripts/KeyboardController.js"></script>		
+		<script type="text/javascript" src="Scripts/Init.js"></script>
+	</head>
+</html>

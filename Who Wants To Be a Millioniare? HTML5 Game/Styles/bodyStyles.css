@@ -1,0 +1,61 @@
+@font-face {
+	font-family: Conduit;
+	src: url('../Fonts/Conduit.eot');
+	src: url('../Fonts/Conduit.eot?#iefix') format('embedded-opentype'),
+	url('../Fonts/Conduit.woff') format('woff'),
+	url('../Fonts/Conduit.svg') format('svg'),
+	url('../Fonts/Conduit.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: ConduitBold;
+	src: url('../Fonts/ConduitITCBold.eot');
+	src: url('../Fonts/ConduitITCBold.eot?#iefix') format('embedded-opentype'),
+	url('../Fonts/ConduitITCBold.woff') format('woff'),
+	url('../Fonts/ConduitITCBold.svg') format('svg'),
+	url('../Fonts/ConduitITCBold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Interstate;
+	src: url('../Fonts/Interstate.eot');
+	src: url('../Fonts/Interstate.eot?#iefix') format('embedded-opentype'),
+	url('../Fonts/Interstate.woff') format('woff'),
+	url('../Fonts/Interstate.svg') format('svg'),
+	url('../Fonts/Interstate.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Copperplate;
+	src: url('../Fonts/Copperplate.eot');
+	src: url('../Fonts/Copperplate.eot?#iefix') format('embedded-opentype'),
+	url('../Fonts/Copperplate.woff') format('woff'),
+	url('../Fonts/Copperplate.svg#IcoMoon') format('svg'),
+	url('../Fonts/Copperplate.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: CopperplateBold;
+	src: url('../Fonts/CopperplateBold.eot');
+	src: url('../Fonts/CopperplateBold.eot?#iefix') format('embedded-opentype'),
+	url('../Fonts/CopperplateBold.woff') format('woff'),
+	url('../Fonts/CopperplateBold.svg#IcoMoon') format('svg'),
+	url('../Fonts/CopperplateBold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{
+	overflow:hidden;
+	width:1920px;
+	height:1080px;
+	background-color:black;
+}
